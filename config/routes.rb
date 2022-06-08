@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root 'billisearch#home'
+
+
+  namespace :billisearch do
+    get 'home'
+    resources :halls
+  end
 end

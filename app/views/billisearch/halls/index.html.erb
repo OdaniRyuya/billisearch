@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-left"><img src="/assets/logo.png" alt=""></div><!-- /.header-logo -->
+      <div class="header-right">
+        <ul class="header-list">
+          <li class="header-item"><a href="">トップ画面</a></li><!-- /.header-item -->
+          <li class="header-item"><%= link_to "ビリヤード場一覧", billisearch_halls_path %></li><!-- /.header-item -->
+          <li class="header-item"><a href="">ログイン</a></li><!-- /.header-item -->
+          <li class="header-item"><a href="">新規登録</a></li><!-- /.header-item -->
+        </ul><!-- /.header-list -->
+      </div><!-- /.header-right -->
+    </header><!-- /.header -->
+
+    <section class="halls">
+      <p>店名</p>
+      <p>住所</p>
+      <p>時間</p>
+    </section><!-- /.halls -->
+
+    <footer>
+      © 2021 Copyright: billisearch.com
+    </footer>
+    <script src="./js/script.js"></script>
+  </body>
+
+</html>
