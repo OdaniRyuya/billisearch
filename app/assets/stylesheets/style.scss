@@ -130,19 +130,44 @@ footer {
 =================================*/
 .halls {
   padding-top: 70px;
+  font-size: 14px;
 
-  h3{
+  &-img {
+    height: 300px;
+    width: 600px;
+    margin: 0 auto;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h3 {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
   }
-  table{
-    max-width: 700px;
+
+  table {
+    max-width: 900px;
     width: 900px;
     margin: 50px auto;
+    border-collapse: collapse;
   }
-  thead{
+
+  thead {
     background-color: $main-color;
     color: #fff;
+    font-size: 16px;
+    border: 1px solid #333;
   }
+
+  td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 1px solid #333;
+  }
+
 }

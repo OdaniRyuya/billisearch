@@ -27,13 +27,14 @@
     </header><!-- /.header -->
 
     <section class="halls">
-    <h3>ビリヤード場一覧</h3>
+      <h3>ビリヤード場一覧</h3>
       <table>
         <thead>
           <tr>
             <th>店舗名</th>
             <th>住所</th>
             <th>料金</th>
+            <th>削除</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +43,9 @@
             <td><%= link_to "#{h.name}", billisearch_hall_path(h)  %></td>
             <td><%= h.address %></td>
             <td><%= h.price %></td>
+            <td>
+              <%= button_to "削除", billisearch_hall_path(h), method: :delete %>
+            </td>
           </tr>
           <% end %>
         </tbody>
