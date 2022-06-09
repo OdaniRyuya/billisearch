@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 $main-color: #125B50;
+$sub-color: #DA1212;
+$border-color: #DFDFDE;
+
+$header-height: 70px;
 
 /*================================
 共通のCSS
@@ -31,15 +35,46 @@ a {
 
   &-list {
     display: flex;
+    line-height: 30px;
   }
 
   &-item {
-    padding-left: 20px;
+    margin-left: 20px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &-login,
+  &-add-account {
+    text-align: center;
+
+    border-radius: 5px;
+
+    a {
+      display: inline-block;
+      color: #fff;
+      height: 30px;
+      line-height: 30px;
+      width: 110px;
+    }
+  }
+
+  &-login {
+    background-color: $main-color;
+
+  }
+
+
+  &-add-account {
+    background-color: $sub-color;
+
   }
 }
 
 .top {
-  padding-top: 70px;
+  padding-top: $header-height;
   background: url('top-bg.jpg') no-repeat;
   background-position: center;
   background-size: cover;
@@ -129,7 +164,7 @@ footer {
 ビリヤード場一覧
 =================================*/
 .halls {
-  padding-top: 70px;
+  padding-top: $header-height;
   font-size: 14px;
 
   &-img {
@@ -175,5 +210,71 @@ footer {
 ビリヤード場登録
 =================================*/
 .new-hall {
-  padding-top: 70px;
+  padding-top: $header-height;
+}
+
+/*================================
+ログイン画面&新規登録画面
+=================================*/
+.user {
+  padding-top: 200px;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+
+  .new_user {
+    margin-bottom: 20px;
+  }
+
+  &-logo {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    height: 33px;
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  #user_remember_me {
+    height: 20px;
+    text-align: left;
+  }
+
+  .user-account-text {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .check-field {
+    display: flex;
+    input{
+      width: 30px;
+    }
+  }
+
+  .actions {
+    margin-top: 20px;
+
+    input {
+      background-color: $main-color;
+      height: 55px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
 }

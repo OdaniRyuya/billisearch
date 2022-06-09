@@ -5,8 +5,25 @@
       <li class="header-item"><%= link_to "トップページ", billisearch_home_path %></li><!-- /.header-item -->
       <li class="header-item"><%= link_to "ビリヤード場一覧", billisearch_halls_path %></li><!-- /.header-item -->
       <li class="header-item"><%= link_to "ビリヤード場登録", new_billisearch_hall_path %></li><!-- /.header-item -->
-      <li class="header-item"><a href="">ログイン</a></li><!-- /.header-item -->
-      <li class="header-item"><a href="">新規登録</a></li><!-- /.header-item -->
+      <% if user_signed_in? %>
+      <!-- ユーザーがログインしているか調べる -->
+      <!-- ユーザーがログインしていた時の処理 -->
+      <h4> メールアドレス： <%= current_user.email %> </h4>
+      <li class="header-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li><!-- /.header-item -->
+      <!-- ログアウトをする -->
+      <% else %>
+      <!-- ユーザーがログインしていなかった時の処理 -->
+      <li class="header-item header-login">
+        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+      </li><!-- /.header-item -->
+      <!-- ログイン画面に移行する -->
+      <li class="header-item header-add-account">
+        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      </li><!-- /.header-item -->
+      <!-- 新規登録画面に移行する -->
+      <% end %>
     </ul><!-- /.header-list -->
   </div><!-- /.header-right -->
 </header><!-- /.header -->
