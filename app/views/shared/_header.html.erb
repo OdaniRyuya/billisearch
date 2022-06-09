@@ -8,9 +8,18 @@
       <% if user_signed_in? %>
       <!-- ユーザーがログインしているか調べる -->
       <!-- ユーザーがログインしていた時の処理 -->
-      <h4> メールアドレス： <%= current_user.email %> </h4>
       <li class="header-item">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= current_user.name %>
+      </li><!-- /.header-item -->
+      <li class="header-item">
+        <ul class="header-drop">
+          <li class="header-drop-item header-user-icon">
+            <img src=<%= current_user.image %>>
+          </li><!-- /.header-drop-list -->
+          <li class="header-drop-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li><!-- /.header-drop-list -->
+        </ul><!-- /.header-drop -->
       </li><!-- /.header-item -->
       <!-- ログアウトをする -->
       <% else %>

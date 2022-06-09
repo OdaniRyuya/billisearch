@@ -35,7 +35,8 @@ a {
 
   &-list {
     display: flex;
-    line-height: 30px;
+    line-height: 70px;
+    align-items: center;
   }
 
   &-item {
@@ -55,21 +56,35 @@ a {
     a {
       display: inline-block;
       color: #fff;
-      height: 30px;
-      line-height: 30px;
       width: 110px;
     }
   }
 
   &-login {
     background-color: $main-color;
-
   }
-
 
   &-add-account {
     background-color: $sub-color;
+  }
 
+  &-user-icon {
+    width: 50px;
+    height: 50px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+
+    }
+  }
+
+  &-drop {
+    &-item:not(:first-child) {
+      display: none;
+    }
   }
 }
 
@@ -261,7 +276,8 @@ footer {
 
   .check-field {
     display: flex;
-    input{
+
+    input {
       width: 30px;
     }
   }

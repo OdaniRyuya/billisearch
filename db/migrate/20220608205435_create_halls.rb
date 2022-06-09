@@ -13,7 +13,7 @@ class CreateHalls < ActiveRecord::Migration[7.0]
       t.boolean :open
       t.string :pr
       t.string :lead
-
+      
       t.timestamps
     end
   end
