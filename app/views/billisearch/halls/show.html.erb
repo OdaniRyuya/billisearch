@@ -27,25 +27,56 @@
     </header><!-- /.header -->
 
     <section class="halls">
-    <h3>ビリヤード場一覧</h3>
+      <h3><%= @hall.name %></h3>
       <table>
-        <thead>
-          <tr>
-            <th>店舗名</th>
-            <th>住所</th>
-            <th>料金</th>
-          </tr>
-        </thead>
         <tbody>
-          <% @halls.each do |h| %>
           <tr>
-            <td><%= link_to "#{h.name}", billisearch_hall_path(h)  %></td>
-            <td><%= h.address %></td>
-            <td><%= h.price %></td>
+            <th>住所</th>
+            <td><%= @hall.name %></td>
           </tr>
-          <% end %>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @hall.tel %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @hall.email %></td>
+          </tr>
+          <tr>
+            <th>料金</th>
+            <td><%= @hall.price %></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td><%= @hall.time %></td>
+          </tr>
+          <tr>
+            <th>駐車場</th>
+            <td><%= @hall.parking %></td>
+          </tr>
+          <tr>
+            <th>台数</th>
+            <td><%= @hall.billiards %></td>
+          </tr>
+          <tr>
+            <th>HP</th>
+            <td><%= @hall.url %></td>
+          </tr>
+          <tr>
+            <th>お店のPR</th>
+            <td><%= @hall.pr %></td>
+          </tr>
+          <tr>
+            <th>オープン</th>
+            <td><%= @hall.open %></td>
+          </tr>
+          <tr>
+            <th>補足事項</th>
+            <td><%= @hall.lead %></td>
+          </tr>
         </tbody>
       </table>
+
     </section><!-- /.halls -->
 
     <footer>

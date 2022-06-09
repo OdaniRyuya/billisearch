@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_08_205435) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_09_105300) do
   create_table "halls", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_205435) do
     t.string "email"
     t.string "price"
     t.integer "parking"
-    t.integer "billiards"
+    t.string "billiards"
     t.boolean "open"
     t.string "pr"
     t.string "lead"
