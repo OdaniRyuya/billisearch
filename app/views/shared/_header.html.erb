@@ -13,12 +13,14 @@
       </li><!-- /.header-item -->
       <li class="header-item">
         <ul class="header-drop">
-          <li class="header-drop-item header-user-icon">
+          <div class="header-drop-menu header-user-icon">
             <img src=<%= current_user.image %>>
-          </li><!-- /.header-drop-list -->
-          <li class="header-drop-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li><!-- /.header-drop-list -->
+          </div><!-- /.header-drop-list -->
+          <ul class="header-drop-list">
+            <li class="header-drop-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li><!-- /.header-drop-item -->
+          </ul><!-- /.header-drop-list -->
         </ul><!-- /.header-drop -->
       </li><!-- /.header-item -->
       <!-- ログアウトをする -->
@@ -36,3 +38,13 @@
     </ul><!-- /.header-list -->
   </div><!-- /.header-right -->
 </header><!-- /.header -->
+
+<script type="text/javascript">
+  $(function () {
+    //ボタンのイベント
+    $(".header-user-icon").click(function () {
+      // sampleAクラスをスライドアップ/ダウンさせる
+      $(".header-drop-list").toggle();
+    });
+  });
+</script>

@@ -71,6 +71,7 @@ a {
   &-user-icon {
     width: 50px;
     height: 50px;
+    position: relative;
 
     img {
       width: 100%;
@@ -81,9 +82,23 @@ a {
     }
   }
 
-  &-drop {
-    &-item:not(:first-child) {
+  &-drop-list {
+    background-color: #DA1212;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    text-align: center;
+    /*================================
       display: none;
+    =================================*/
+  }
+
+  &-drop-item {
+    line-height: normal;
+
+    a {
+      padding: 10px 30px;
+      display: inline-block;
     }
   }
 }
