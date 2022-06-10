@@ -20,6 +20,13 @@
             <li class="header-drop-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li><!-- /.header-drop-item -->
+            <li class="header-drop-item">
+              <%= link_to "マイページ", user_path(current_user) %>
+            </li><!-- /.header-drop-item -->
+            <li class="header-drop-item">
+              <%= link_to "ユーザー編集", edit_user_registration_path %>
+            </li><!-- /.header-drop-item -->
+
           </ul><!-- /.header-drop-list -->
         </ul><!-- /.header-drop -->
       </li><!-- /.header-item -->
