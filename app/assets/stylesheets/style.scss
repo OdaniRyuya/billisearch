@@ -196,9 +196,7 @@ footer {
   padding-top: $header-height;
   font-size: 14px;
 
-  &-name {
-    display: flex;
-  }
+  &-name {}
 
   .favorite-check {
     color: #DA1212;
@@ -243,9 +241,11 @@ footer {
   }
 
   td {
-
     border: 1px solid #333;
     padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   th {
@@ -255,6 +255,10 @@ footer {
   tr {
     height: 30px;
     line-height: 30px;
+  }
+
+  span {
+    display: inline-block;
   }
 }
 
