@@ -60,6 +60,8 @@ group :development do
   gem 'devise'
   gem 'carrierwave'
   gem 'mini_magick'
+  gem 'devise-i18n'
+  gem 'devise-i18n-views'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
