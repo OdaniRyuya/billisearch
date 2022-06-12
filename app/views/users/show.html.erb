@@ -1,1 +1,18 @@
-<p>メールアドレス : <%= @user.email %></p>
+<div class="mypage">
+  <div class="mypage-container">
+    <div class="mypage-img">
+      <img src=<%= current_user.image %>>
+    </div><!-- /.mypage-img -->
+    <table>
+      <tr>
+        <td>ユーザー名</td>
+        <td><%= current_user.name %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= current_user.email %></td>
+      </tr>
+    </table>
+
+  </div><!-- /.mypage-container -->
+</div><!-- /.mypage -->
