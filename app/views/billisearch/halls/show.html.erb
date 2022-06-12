@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+  <body>
+
+
+    <section class="halls">
+      <h3><%= @hall.name %></h3>
+      <div class="halls-img">
+        <%= image_tag @hall.image %>
+      </div><!-- /.halls-img -->
+      <table>
+        <tbody>
+          <tr>
+            <th>住所</th>
+            <td><%= @hall.name %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @hall.tel %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @hall.email %></td>
+          </tr>
+          <tr>
+            <th>料金</th>
+            <td><%= @hall.price %></td>
+          </tr>
+          <tr>
+            <th>営業時間</th>
+            <td><%= @hall.time %></td>
+          </tr>
+          <tr>
+            <th>駐車場</th>
+            <td><%= @hall.parking %></td>
+          </tr>
+          <tr>
+            <th>台数</th>
+            <td><%= @hall.billiards %></td>
+          </tr>
+          <tr>
+            <th>HP</th>
+            <td><%= @hall.url %></td>
+          </tr>
+          <tr>
+            <th>お店のPR</th>
+            <td><%= @hall.pr %></td>
+          </tr>
+          <tr>
+            <th>オープン</th>
+            <td><%= @hall.open %></td>
+          </tr>
+          <tr>
+            <th>補足事項</th>
+            <td><%= @hall.lead %></td>
+          </tr>
+        </tbody>
+      </table>
+    </section><!-- /.halls -->
+    <script src="./js/script.js"></script>
+  </body>
+
+</html>

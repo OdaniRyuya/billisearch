@@ -1,0 +1,61 @@
+<header class="header">
+  <div class="header-left"><img src="/assets/logo.png" alt=""></div><!-- /.header-logo -->
+  <div class="header-right">
+    <ul class="header-list">
+      <li class="header-item"><%= link_to "トップページ", billisearch_home_path %></li><!-- /.header-item -->
+      <li class="header-item"><%= link_to "ビリヤード場一覧", billisearch_halls_path %></li><!-- /.header-item -->
+      <li class="header-item"><%= link_to "ビリヤード場登録", new_billisearch_hall_path %></li><!-- /.header-item -->
+      <% if user_signed_in? %>
+      <!-- ユーザーがログインしているか調べる -->
+      <!-- ユーザーがログインしていた時の処理 -->
+      <li class="header-item">
+        <%= current_user.name %>
+      </li><!-- /.header-item -->
+      <li class="header-item">
+        <ul class="header-drop">
+          <div class="header-drop-menu header-user-icon">
+            <% if current_user.image? %>
+            <img src=<%= current_user.image %>>
+            <% else %>
+            <img src="/assets/profile-image.png" %>
+            <% end %>
+          </div><!-- /.header-drop-list -->
+          <ul class="header-drop-list">
+            <li class="header-drop-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li><!-- /.header-drop-item -->
+            <li class="header-drop-item">
+              <%= link_to "マイページ", user_path(current_user) %>
+            </li><!-- /.header-drop-item -->
+            <li class="header-drop-item">
+              <%= link_to "ユーザー編集", edit_user_registration_path %>
+            </li><!-- /.header-drop-item -->
+
+          </ul><!-- /.header-drop-list -->
+        </ul><!-- /.header-drop -->
+      </li><!-- /.header-item -->
+      <!-- ログアウトをする -->
+      <% else %>
+      <!-- ユーザーがログインしていなかった時の処理 -->
+      <li class="header-item header-login">
+        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+      </li><!-- /.header-item -->
+      <!-- ログイン画面に移行する -->
+      <li class="header-item header-add-account">
+        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      </li><!-- /.header-item -->
+      <!-- 新規登録画面に移行する -->
+      <% end %>
+    </ul><!-- /.header-list -->
+  </div><!-- /.header-right -->
+</header><!-- /.header -->
+
+<script type="text/javascript">
+  $(function () {
+    //ボタンのイベント
+    $(".header-user-icon").click(function () {
+      // sampleAクラスをスライドアップ/ダウンさせる
+      $(".header-drop-list").toggle();
+    });
+  });
+</script>
