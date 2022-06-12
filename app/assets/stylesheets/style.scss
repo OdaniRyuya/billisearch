@@ -196,6 +196,20 @@ footer {
   padding-top: $header-height;
   font-size: 14px;
 
+  &-name {
+    display: flex;
+  }
+
+  .favorite-check {
+    color: #DA1212;
+    margin-right: 10px;
+  }
+
+  .favorite-no-check {
+    color: gray;
+    margin-right: 10px;
+  }
+
   &-img {
     height: 300px;
     width: 600px;
@@ -323,6 +337,12 @@ footer {
 =================================*/
 .mypage {
   padding-top: 70px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 50px 0;
+  }
 
   &-img {
     height: 200px;

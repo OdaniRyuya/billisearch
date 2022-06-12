@@ -11,12 +11,22 @@
             <th>住所</th>
             <th>料金</th>
             <th>削除</th>
+
           </tr>
         </thead>
         <tbody>
           <% @halls.each do |h| %>
           <tr>
-            <td><%= link_to "#{h.name}", billisearch_hall_path(h)  %></td>
+            <td class="halls-name">
+              <% if user_signed_in? %>
+              <% if current_user.favorite_find(h.id) %>
+              <%= button_to '❤︎', destroy_favorite_path(h.id), method: :delete, class: "favorite-check" %>
+              <% else %>
+              <%= button_to '❤︎', create_favorite_path(h.id) , method: :post , class: "favorite-no-check" %>
+              <% end %>
+              <% end %>
+              <%= link_to "#{h.name}", billisearch_hall_path(h)  %>
+            </td>
             <td><%= h.address %></td>
             <td><%= h.price %></td>
             <td>
