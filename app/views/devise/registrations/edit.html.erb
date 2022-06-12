@@ -3,6 +3,18 @@
     <h1>アカウント情報編集</h1>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <ul class='user-edit-list'>
+      <div class="user-edit-img">
+        <% if current_user.image? %>
+        <img src=<%= current_user.image %>>
+        <% else %>
+        <img src="/assets/profile-image.png" %>
+        <% end %>
+      </div><!-- /.user-edit-img -->
+      <%= f.label :image, "ユーザー画像" %>
+      <%= f.file_field :image, autofocus: true, class: "form-control" %>
+    </ul>
     <ul class='user-edit-list'>
       <%= f.label :name, "ユーザー名" %>
       <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "最大10文字", maxlength: 10 %>

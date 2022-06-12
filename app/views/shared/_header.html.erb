@@ -14,7 +14,11 @@
       <li class="header-item">
         <ul class="header-drop">
           <div class="header-drop-menu header-user-icon">
+            <% if current_user.image? %>
             <img src=<%= current_user.image %>>
+            <% else %>
+            <img src="/assets/profile-image.png" %>
+            <% end %>
           </div><!-- /.header-drop-list -->
           <ul class="header-drop-list">
             <li class="header-drop-item">

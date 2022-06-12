@@ -1,7 +1,11 @@
 <div class="mypage">
   <div class="mypage-container">
     <div class="mypage-img">
+      <% if current_user.image? %>
       <img src=<%= current_user.image %>>
+      <% else %>
+      <img src="/assets/profile-image.png" %>
+      <% end %>
     </div><!-- /.mypage-img -->
     <table>
       <tr>
