@@ -1,10 +1,54 @@
 @charset "UTF-8";
 
+/*================================
+カラー変数
+=================================*/
 $main-color: #125B50;
 $sub-color: #DA1212;
 $border-color: #DFDFDE;
 
+/*================================
+
+=================================*/
 $header-height: 70px;
+
+/*================================
+テーブルの共通変数
+=================================*/
+@mixin table {
+  table {
+    max-width: 900px;
+    width: 100%;
+    margin: 50px auto;
+    border-collapse: collapse;
+  }
+
+  thead {
+    background-color: $main-color;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #333;
+  }
+
+  td {
+    border: 1px solid #333;
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th {
+    border: 1px solid #333;
+  }
+
+  tr {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+
 
 /*================================
 共通のCSS
@@ -87,9 +131,6 @@ a {
     right: 0;
     top: 70px;
     text-align: center;
-    /*================================
-      display: none;
-    =================================*/
   }
 
   &-drop-item {
@@ -226,36 +267,7 @@ footer {
     text-align: center;
   }
 
-  table {
-    max-width: 900px;
-    width: 900px;
-    margin: 50px auto;
-    border-collapse: collapse;
-  }
-
-  thead {
-    background-color: $main-color;
-    color: #fff;
-    font-size: 16px;
-    border: 1px solid #333;
-  }
-
-  td {
-    border: 1px solid #333;
-    padding-left: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  th {
-    border: 1px solid #333;
-  }
-
-  tr {
-    height: 30px;
-    line-height: 30px;
-  }
+  @include table;
 
   span {
     display: inline-block;
@@ -364,18 +376,10 @@ footer {
   &-container {
     width: 600px;
     margin: 0 auto;
+  }
 
-    table {
-      border-collapse: collapse;
-      margin: 60px auto;
-
-      td {
-        border: 1px solid $border-color;
-        padding: 8px;
-      }
-
-      tr {}
-    }
+  &-favorite {
+    @include table;
   }
 }
 

@@ -19,5 +19,32 @@
       </tr>
     </table>
 
+    <div class="mypage-favorite">
+      <table>
+        <thead>
+          <tr>
+            <th>店舗名</th>
+            <th>住所</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% if @user.favorites.present? %>
+          <% @user.favorites.each do |favorite| %>
+          <tr>
+            <td>
+              <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id)  %>
+            </td>
+            <td>
+              <%= favorite.hall.address %>
+            </td>
+          </tr>
+          <% end %>
+          <% end %>
+
+        </tbody>
+      </table>
+    </div><!-- /.mypage-favorite -->
+
   </div><!-- /.mypage-container -->
 </div><!-- /.mypage -->

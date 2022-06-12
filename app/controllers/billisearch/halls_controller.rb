@@ -8,7 +8,7 @@ class Billisearch::HallsController < ApplicationController
   end
 
   def create
-    @hall = Hall.new(params.require(:hall).permit(:image ,:name, :url, :address, :tel, :time, :email, :price, :parking, :billiards, :open, :pr, :lead))
+    @hall = Hall.new(params.require(:hall).permit(:image ,:name, :url, :address, :tel, :time, :email, :price, :parking, :billiards, :open, :pr, :lead,))
     if @hall.save
       redirect_to billisearch_halls_path
     else
