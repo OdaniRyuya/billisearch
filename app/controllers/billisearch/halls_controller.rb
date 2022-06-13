@@ -1,6 +1,15 @@
 class Billisearch::HallsController < ApplicationController
   def index
-    @halls = Hall.all
+    if params[:updated_ASC]
+      @halls = Hall.updated_asc
+    elsif params[:updated_DESC]
+      @halls = Hall.updated_desc
+    elsif params[:favorites_DESC]
+      @halls = Hall.favorites_desc
+    else
+      @halls = Hall.all
+
+    end
   end
 
   def new
@@ -25,4 +34,6 @@ class Billisearch::HallsController < ApplicationController
     @hall.destroy
     redirect_to billisearch_halls_path
   end
+
+
 end
