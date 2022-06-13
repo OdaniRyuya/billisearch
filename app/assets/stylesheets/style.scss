@@ -6,6 +6,7 @@
 $main-color: #125B50;
 $sub-color: #D6224A;
 $border-color: #DFDFDE;
+$secondary-color: #C1CBD9;
 
 /*================================
 フォント関係
@@ -126,6 +127,7 @@ a:hover {
     }
   }
 
+  &-guest,
   &-login,
   &-add-account {
     text-align: center;
@@ -135,8 +137,16 @@ a:hover {
     a {
       display: inline-block;
       color: #fff;
-      width: 110px;
+      width: 90px;
     }
+
+    button {
+      width: 140px;
+    }
+  }
+
+  &-guest {
+    background-color: $secondary-color;
   }
 
   &-login {
@@ -457,9 +467,7 @@ footer {
     @include table;
     @include table-wrap;
 
-    &-name {
-
-    }
+    &-name {}
   }
 
   .favorite-check {

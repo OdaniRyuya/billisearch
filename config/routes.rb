@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :billisearch do
 
     get 'home'
+    post 'new_guest'
     resources :halls
   end
 end

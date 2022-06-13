@@ -39,6 +39,9 @@
       <!-- ログアウトをする -->
       <% else %>
       <!-- ユーザーがログインしていなかった時の処理 -->
+      <li class="header-item header-guest" >
+        <%= button_to 'ゲストログイン', billisearch_new_guest_path, method: :post %>
+      </li>
       <li class="header-item header-login">
         <%= link_to "ログイン", new_user_session_path, class: 'post' %>
       </li><!-- /.header-item -->
