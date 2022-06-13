@@ -1,5 +1,7 @@
 <header class="header">
-  <div class="header-left"><img src="/assets/logo.png" alt=""></div><!-- /.header-logo -->
+  <div class="header-left">
+    <%= link_to image_tag("logo.png"), billisearch_home_path %>
+  </div><!-- /.header-logo -->
   <div class="header-right">
     <ul class="header-list">
       <li class="header-item"><%= link_to "トップページ", billisearch_home_path %></li><!-- /.header-item -->

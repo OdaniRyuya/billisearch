@@ -24,7 +24,7 @@ $header-height: 70px;
 /*================================
 テーブルの共通変数
 =================================*/
-@mixin table {
+@mixin table() {
   table {
     width: 100%;
     max-width: 800px;
@@ -37,15 +37,12 @@ $header-height: 70px;
     background-color: $main-color;
     color: #fff;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 1px solid $border-color;
   }
 
   td {
-    border: 1px solid #333;
+    border: 1px solid $border-color;
     padding: 0 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .name {
@@ -63,6 +60,16 @@ $header-height: 70px;
   tr {
     height: 30px;
     line-height: 30px;
+  }
+}
+
+@mixin table-wrap {
+  table {
+    td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
 }
@@ -294,6 +301,46 @@ footer {
   }
 
   @include table;
+  @include table-wrap;
+
+  span {
+    display: inline-block;
+  }
+}
+
+/*================================
+ビリヤード場詳細
+=================================*/
+.hall-show {
+  padding-top: $header-height;
+  font-size: 14px;
+
+  &-img {
+    height: 300px;
+    width: 600px;
+    margin: 0 auto;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h3 {
+    @include section-title;
+  }
+
+  @include table;
+
+  th {
+    border: 1px solid $border-color;
+    width: 300px;
+  }
+
+  td {
+    word-wrap: break-word;
+  }
 
   span {
     display: inline-block;
@@ -408,6 +455,7 @@ footer {
 
   &-favorite {
     @include table;
+    @include table-wrap;
   }
 }
 
