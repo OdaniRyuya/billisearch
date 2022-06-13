@@ -55,6 +55,25 @@
           </tr>
         </tbody>
       </table>
+      <div class="hall-review">
+        <ul class="hall-review-list">
+          <li><%= "口コミが入ります" %></li>
+          <li>
+            <% @reviews.each do |review| %>
+            <p><%= review.content %></p>
+            <% end %>            
+          </li>
+
+          <%= form_with model: @review, url: reviews_path do |f| %>
+          <%= f.hidden_field :hall_id, value: @hall.id %>
+          <li><%= f.label :content ,"口コミ内容" %></li>
+          <li><%= f.text_area :content %></li>
+          <li><%= f.submit "レビューを投稿する" %></li>
+          <% end %>
+
+
+        </ul><!-- /.hall-review-list -->
+      </div><!-- /.hall-review -->
     </section><!-- /.halls -->
     <script src="./js/script.js"></script>
   </body>

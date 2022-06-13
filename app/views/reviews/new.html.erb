@@ -1,0 +1,15 @@
+<p>aaa</p>
+<p>aaa</p>
+<p>aaa</p>
+<p>aaa</p>
+<p>aaa</p>
+<p>aaa</p>
+<p>aaa</p>
+
+
+
+<%= form_with model: @review, url: reviews_path do |f| %>
+<li><%= f.label :content ,"口コミ内容" %></li>
+<li><%= f.text_area :content %></li>
+<li><%= f.submit "レビューを投稿する" %></li>
+<% end %>

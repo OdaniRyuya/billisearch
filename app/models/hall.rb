@@ -1,6 +1,7 @@
 class Hall < ApplicationRecord
   has_one_attached :image
   has_many :favorites, dependent: :destroy  
+  has_many :reviews
   belongs_to :user, optional:true
 
   scope :updated_asc, -> {order(updated_at: :asc)}
