@@ -8,7 +8,16 @@ $sub-color: #DA1212;
 $border-color: #DFDFDE;
 
 /*================================
+フォント関係
+=================================*/
+@mixin section-title {
+  font-size: 28px;
+  text-align: center;
+  margin: 50px 0;
+}
 
+/*================================
+ヘッダー固定でずれた高さ(ヘッダーのheightの値)
 =================================*/
 $header-height: 70px;
 
@@ -32,7 +41,7 @@ $header-height: 70px;
 
   td {
     border: 1px solid #333;
-    padding-left: 10px;
+    padding: 0 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -143,6 +152,9 @@ a {
   }
 }
 
+/*================================
+トップページ
+=================================*/
 .top {
   padding-top: $header-height;
   background: url('top-bg.jpg') no-repeat;
@@ -182,9 +194,7 @@ a {
   background-color: cornsilk;
 
   h3 {
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 30px;
+    @include section-title;
   }
 
   &-container {
@@ -262,9 +272,7 @@ footer {
   }
 
   h3 {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
+    @include section-title;
   }
 
   @include table;
@@ -285,7 +293,7 @@ footer {
 ログイン画面&新規登録画面
 =================================*/
 .user {
-  padding-top: 200px;
+  padding-top: $header-height + 180px;
   width: 400px;
   margin: 0 auto;
   margin-bottom: 200px;
@@ -298,7 +306,7 @@ footer {
     text-align: center;
   }
 
-  h2 {
+  h4 {
     text-align: center;
     font-size: 16px;
     margin-bottom: 30px;
@@ -352,12 +360,10 @@ footer {
 マイページ
 =================================*/
 .mypage {
-  padding-top: 70px;
+  padding-top: $header-height + 100px;
 
-  h2 {
-    font-size: 28px;
-    text-align: center;
-    margin: 50px 0;
+  h3 {
+    @include section-title;
   }
 
   &-img {
@@ -378,16 +384,21 @@ footer {
     margin: 0 auto;
   }
 
+  &-profile {
+    @include table;
+  }
+
   &-favorite {
     @include table;
   }
 }
 
 /*================================
-user-edit
+ユーザー編集
 =================================*/
 .user-edit {
-  padding: 200px 0;
+  padding-top: $header-height + 100px;
+  padding-bottom: 100px;
 
   &-img {
     height: 200px;
@@ -411,9 +422,8 @@ user-edit
     width: 600px;
     margin: 0 auto;
 
-    h1 {
-      margin-bottom: 40px;
-      text-align: center;
+    h4 {
+      @include section-title;
     }
 
     label {

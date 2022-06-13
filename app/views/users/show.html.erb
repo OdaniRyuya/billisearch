@@ -1,6 +1,6 @@
 <div class="mypage">
   <div class="mypage-container">
-    <h2>マイページ</h2>
+    <h3>マイページ</h3>
     <div class="mypage-img">
       <% if current_user.image? %>
       <img src=<%= current_user.image %>>
@@ -8,19 +8,23 @@
       <img src="/assets/profile-image.png" %>
       <% end %>
     </div><!-- /.mypage-img -->
-    <table>
-      <tr>
-        <td>ユーザー名</td>
-        <td><%= current_user.name %></td>
-      </tr>
-      <tr>
-      
-        <td>メールアドレス</td>
-        <td><%= current_user.email %></td>
-      </tr>
-    </table>
+
+    <div class="mypage-profile">
+      <table>
+        <tr>
+          <td>ユーザー名</td>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+
+          <td>メールアドレス</td>
+          <td><%= current_user.email %></td>
+        </tr>
+      </table>
+    </div><!-- /.mypage-profile -->
 
     <div class="mypage-favorite">
+      <h3>お気に入り</h3>
       <table>
         <thead>
           <tr>
