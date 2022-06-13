@@ -4,7 +4,7 @@
 カラー変数
 =================================*/
 $main-color: #125B50;
-$sub-color: #DA1212;
+$sub-color: #D6224A;
 $border-color: #DFDFDE;
 
 /*================================
@@ -74,6 +74,17 @@ li {
 
 a {
   color: #000;
+  text-decoration: none;
+}
+
+a,
+input {
+  transition: 0.4s;
+}
+
+input:hover,
+a:hover {
+  opacity: 0.7;
 }
 
 .header {
@@ -414,7 +425,6 @@ footer {
   }
 
   &-list {
-    border-bottom: 1px solid $border-color;
     padding: 18px 0;
   }
 
@@ -434,6 +444,27 @@ footer {
     input {
       border: solid 1px $border-color;
       width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      background-color: $main-color;
+      color: #fff;
+      font-weight: bold;
+      padding: 15px 0;
+      border-radius: 10px;
+    }
+
+    .link-below-user-form {
+      display: block;
+      background-color: $sub-color;
+      color: #fff;
+      font-weight: bold;
+      padding: 15px 0;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 10px;
     }
   }
 }
