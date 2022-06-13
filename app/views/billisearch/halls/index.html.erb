@@ -8,7 +8,7 @@
         <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
         <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
         <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
-        
+
       </div><!-- /.halls-sort -->
       <table>
         <thead>
@@ -49,6 +49,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @halls %>
     </section><!-- /.halls -->
 
     <script src="./js/script.js"></script>

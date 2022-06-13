@@ -62,6 +62,7 @@ group :development do
   gem 'mini_magick'
   gem 'devise-i18n'
   gem 'devise-i18n-views'
+  gem 'kaminari'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
