@@ -37,7 +37,12 @@
           <% if @user.favorites.present? %>
           <% @user.favorites.each do |favorite| %>
           <tr>
-            <td>
+            <td class="mypage-favorite-name">
+              <span>
+
+                <%= button_to "❤︎", destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" %>
+              
+              </span>
               <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id)  %>
             </td>
             <td>
@@ -53,3 +58,15 @@
 
   </div><!-- /.mypage-container -->
 </div><!-- /.mypage -->
+
+<script type="text/javascript">
+function check(){
+if(window.confirm('本当に削除しますか？')){
+return true;
+}
+else{
+window.alert('キャンセルされました');
+return false;
+}
+}
+</script>

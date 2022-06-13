@@ -456,6 +456,15 @@ footer {
   &-favorite {
     @include table;
     @include table-wrap;
+
+    &-name {
+
+    }
+  }
+
+  .favorite-check {
+    color: $sub-color;
+    padding-right: 10px;
   }
 }
 
