@@ -27,8 +27,8 @@ class Billisearch::HallsController < ApplicationController
 
   def show
     @hall = Hall.find(params[:id])
-    @reviews = Review.all
     @review = Review.new
+    @reviews = @hall.reviews
   end
 
 
