@@ -26,10 +26,11 @@ $header-height: 70px;
 =================================*/
 @mixin table {
   table {
-    max-width: 900px;
     width: 100%;
+    max-width: 800px;
     margin: 50px auto;
     border-collapse: collapse;
+    table-layout: fixed
   }
 
   thead {
@@ -42,19 +43,28 @@ $header-height: 70px;
   td {
     border: 1px solid #333;
     padding: 0 10px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
-  th {
-    border: 1px solid #333;
+  .name {
+    width: 200px;
+  }
+
+  .address {
+    width: 200px;
+  }
+
+  .delete {
+    width: 30px;
   }
 
   tr {
     height: 30px;
     line-height: 30px;
   }
+
 }
 
 
@@ -82,7 +92,6 @@ input {
   transition: 0.4s;
 }
 
-input:hover,
 a:hover {
   opacity: 0.7;
 }
@@ -257,8 +266,6 @@ footer {
 .halls {
   padding-top: $header-height;
   font-size: 14px;
-
-  &-name {}
 
   .favorite-check {
     color: #DA1212;
@@ -454,6 +461,10 @@ footer {
       font-weight: bold;
       padding: 15px 0;
       border-radius: 10px;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     .link-below-user-form {

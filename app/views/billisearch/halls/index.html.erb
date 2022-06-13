@@ -7,17 +7,16 @@
       <table>
         <thead>
           <tr>
-            <th>店舗名</th>
-            <th>住所</th>
-            <th>料金</th>
-            <th>削除</th>
+            <th class="name">店舗名</th>
+            <th class="address">住所</th>
+            <th class="delete">削除</th>
 
           </tr>
         </thead>
         <tbody>
           <% @halls.each do |h| %>
           <tr>
-            <td class="halls-name">
+            <td>
               <span>
               <%= h.favorites.count %>
               </span>
@@ -37,7 +36,6 @@
               <%= link_to "#{h.name}", billisearch_hall_path(h)  %>
             </td>
             <td><%= h.address %></td>
-            <td><%= h.price %></td>
             <td>
               <%= button_to "削除", billisearch_hall_path(h), method: :delete %>
             </td>
