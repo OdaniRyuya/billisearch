@@ -61,6 +61,8 @@
           <li>
             <% @reviews.each do |review| %>
             <p><%= review.content %></p>
+            <img src=<%= review.user.image %>>
+            <p><%= review.user.name %></p>
             <% end %>            
           </li>
 
