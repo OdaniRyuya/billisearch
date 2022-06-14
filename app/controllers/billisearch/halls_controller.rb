@@ -1,4 +1,5 @@
 class Billisearch::HallsController < ApplicationController
+
   def index
     if params[:updated_ASC]
       @halls = Hall.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
@@ -39,6 +40,5 @@ class Billisearch::HallsController < ApplicationController
     @hall.destroy
     redirect_to billisearch_halls_path
   end
-
 
 end

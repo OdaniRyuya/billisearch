@@ -3,6 +3,19 @@
 
   <body>
     <section class="halls">
+
+      <h3>検索する</h3>
+      <%= search_form_for @search, url: billisearch_halls_path do |f| %>
+      <%= f.text_field :name %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit "検索" %>
+      <% end %>
+
+      <% @search_halls.each do |r| %>
+      <p><%= r.name %></p>
+      <% end %>
+
+
       <h3>ビリヤード場一覧</h3>
       <div class="halls-sort">
         <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
