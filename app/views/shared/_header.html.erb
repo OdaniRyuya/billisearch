@@ -1,6 +1,7 @@
 <header class="header">
   <div class="header-left">
     <%= link_to image_tag("logo.png"), billisearch_home_path %>
+    <%= render "shared/hall_search" %>
   </div><!-- /.header-logo -->
   <div class="header-right">
     <ul class="header-list">
@@ -39,7 +40,7 @@
       <!-- ログアウトをする -->
       <% else %>
       <!-- ユーザーがログインしていなかった時の処理 -->
-      <li class="header-item header-guest" >
+      <li class="header-item header-guest">
         <%= button_to 'ゲストログイン', billisearch_new_guest_path, method: :post %>
       </li>
       <li class="header-item header-login">
