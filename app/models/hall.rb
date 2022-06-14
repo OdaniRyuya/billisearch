@@ -10,6 +10,10 @@ class Hall < ApplicationRecord
                             .left_joins(:favorites)
                             .group('halls.id')
                             .order('favorites DESC')}
+  scope :reviews_desc, -> {select('halls.*', 'count(reviews.id) AS reviews')
+                            .left_joins(:reviews)
+                            .group('halls.id')
+                            .order('reviews DESC')}                          
 
 
 end

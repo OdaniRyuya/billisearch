@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller? 
 
-  PAGINATION_MAX_HALLS_COUNT = 2
+  PAGINATION_MAX_HALLS_COUNT = 4
 
   private
     def configure_permitted_parameters

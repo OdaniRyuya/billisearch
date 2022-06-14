@@ -8,6 +8,7 @@
         <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
         <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
         <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
+        <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
 
       </div><!-- /.halls-sort -->
       <table>
@@ -23,9 +24,9 @@
           <% @halls.order("id ASC").each do |h| %>
           <tr>
             <td>
-              <span>
-                <%= h.favorites.count %>
-              </span>
+              <span><%= h.reviews.count %></span>
+              <span>口コミ</span>
+              <span><%= h.favorites.count %></span>
               <span>
                 <!-- サインインしている場合 -->
                 <% if user_signed_in? %>

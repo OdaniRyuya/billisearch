@@ -6,6 +6,9 @@ class Billisearch::HallsController < ApplicationController
       @halls = Hall.updated_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     elsif params[:favorites_DESC]
       @halls = Hall.favorites_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+    elsif params[:reviews_DESC]
+      @halls = Hall.reviews_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+
     else
       @halls = Hall.all.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     end
