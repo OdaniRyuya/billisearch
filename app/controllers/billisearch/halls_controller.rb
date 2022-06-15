@@ -11,9 +11,7 @@ class Billisearch::HallsController < ApplicationController
     elsif params[:reviews_DESC]
       @search_halls = @search_halls.reviews_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     else
-        #ここまでは全部取得できてる
       @search_halls = @search_halls.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
-
     end
 
 

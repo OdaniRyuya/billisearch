@@ -6,12 +6,24 @@
       <div class="halls-container">
 
         <h3>検索結果:<%=  @search_halls_count.length %>件</h3>
+
         <div class="halls-sort">
-          <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
-          <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
-          <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
-          <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
+          <ul>
+            <li class="<%= "current" if current_page?(billisearch_halls_path(updated_ASC: "true")) %>">
+              <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true")%>
+            </li>
+            <li class="<%= "current" if current_page?(billisearch_halls_path(updated_DESC: "true")) %>">
+              <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
+            </li>
+            <li class="<%= "current" if current_page?(billisearch_halls_path(favorites_DESC: "true")) %>">
+              <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
+            </li>
+            <li class="<%= "current" if current_page?(billisearch_halls_path(reviews_DESC: "true")) %>">
+              <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
+            </li>
+          </ul>
         </div><!-- /.halls-sort -->
+
 
         <ul class="halls-list">
           <% @search_halls.each do |h| %>
@@ -69,12 +81,17 @@
             <%= paginate @search_halls %>
           </div><!-- /.halls-pagination -->
         </ul><!-- /.halls-list -->
-
-
       </div><!-- /.halls-container -->
     </section><!-- /.halls -->
-
     <script src="./js/script.js"></script>
   </body>
 
 </html>
+
+<script type="text/javascript">
+  $(function () {
+    $('.edit_user :input').prop('disabled', true);
+    $('.edit_user :input').prop('disabled', true);
+    $('.form-submit-btn').off('mouseenter mouseleave');
+  });
+</script>

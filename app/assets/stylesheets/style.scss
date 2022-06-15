@@ -3,10 +3,10 @@
 /*================================
 カラー変数
 =================================*/
-$main-color: #125B50;
+$main-color: #C2DED1;
 $main-color-light: #0CA877;
 $sub-color: #D6224A;
-$back-color: #E8FFED;
+$back-color: #F2DCBB;
 $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
 $link-color : #0066c0;
@@ -270,20 +270,39 @@ footer {
 .halls {
   padding-top: $header-height;
   font-size: 14px;
+  background-color: $back-color;
+  padding: 40px;
 
 
   &-container {
-    max-width: 1700px;
-    margin: 0 auto;
-    background-color: $back-color;
-    padding: 0 130px;
-
+    max-width: 1300px;
+    margin: 70px auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px -10px;
   }
 
   &-sort {
-    a {
-      padding-right: 10px;
+
+    ul {
+      display: flex;
+
+      a {
+        margin-right: 10px;
+      }
+
+      .current {
+        a {
+          color: $main-color-light;
+          border-bottom: 1px solid $main-color;
+        }
+      }
     }
+
+
+
+
   }
 
   &-list {
@@ -302,6 +321,7 @@ footer {
     background-color: #fff;
     margin-bottom: 30px;
     border-radius: 5px;
+    box-shadow: 10px 10px 15px -10px;
 
     &-inner {
       overflow: hidden;
