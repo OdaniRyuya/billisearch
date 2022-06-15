@@ -5,15 +5,13 @@
     <section class="halls">
       <div class="halls-container">
 
-
-
+        <h3>検索結果:<%= @search_halls.length %>件</h3>
         <div class="halls-sort">
           <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
           <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
           <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
           <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
         </div><!-- /.halls-sort -->
-
 
         <ul class="halls-list">
           <% @search_halls.each do |h| %>
@@ -23,12 +21,12 @@
                 <img src="/assets/playplan.jpg" %>
               </div><!-- /.halls-item-img -->
 
-              <div class="halls-item-favorite">
+              <div class="halls-item-favorite-icon">
                 <%= render partial: "favorite", locals: {h: h} %>
                 <p><%= h.favorites.count %></p>
               </div><!-- /.halls-item-favorite -->
 
-              <div class="halls-item-review">
+              <div class="halls-item-review-icon">
                 <i class="fa-solid fa-comments"></i>
                 <p><%= h.reviews.count %></p>
               </div><!-- /.halls-item-review -->
@@ -45,6 +43,23 @@
               <p><%= h.price %></p>
               <p><%= h.time %></p>
               <p><%= h.open %></p>
+
+              <% if h.reviews.present? %>
+              <% h.reviews.first(2).each do |r| %>
+              <div class="halls-item-review">
+
+                <div class="halls-item-review-img">
+                  <img src=<%= r.user.image %>>
+                </div><!-- /.hall-item-review-img -->
+                <div class="halls-item-review-summary">
+                  <p class="name"><%= r.user.name %></p>
+                  <p class="content"><%= r.content %></p>
+                </div><!-- /.halls-item-teview-summary -->
+              </div><!-- /.halls-item-review -->
+              <% end %>
+              <% end %>
+
+
               <%= link_to "詳細はこちら", billisearch_hall_path(h), class:"halls-item-show" %>
 
             </div><!-- /.halls-item-inner -->

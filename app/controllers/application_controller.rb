@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
 
-  PAGINATION_MAX_HALLS_COUNT = 4
+  PAGINATION_MAX_HALLS_COUNT = 10
 
   def set_search
     @q = Hall.ransack(params[:q])

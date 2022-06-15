@@ -13,6 +13,8 @@ class Billisearch::HallsController < ApplicationController
     else
       @search_halls = @search_halls.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     end
+
+
   end
 
   def new
