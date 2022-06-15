@@ -1,6 +1,8 @@
 <div class="mypage">
   <div class="mypage-container">
-    <h3>マイページ</h3>
+    <div class="section-title">
+      <h3>マイページ</h3>
+    </div><!-- /.section-title -->
     <div class="mypage-img">
       <% if current_user.image? %>
       <img src=<%= current_user.image %>>
@@ -10,21 +12,16 @@
     </div><!-- /.mypage-img -->
 
     <div class="mypage-profile">
-      <table>
-        <tr>
-          <td>ユーザー名</td>
-          <td><%= current_user.name %></td>
-        </tr>
-        <tr>
-
-          <td>メールアドレス</td>
-          <td><%= current_user.email %></td>
-        </tr>
-      </table>
+      <ul>
+        <li><%= current_user.name %></li>
+        <li><%= current_user.email %></li>
+      </ul>
     </div><!-- /.mypage-profile -->
 
     <div class="mypage-favorite">
-      <h3>お気に入り</h3>
+      <div class="section-title">
+        <h3>お気に入り</h3>
+      </div><!-- /.section-title -->
       <table>
         <thead>
           <tr>
@@ -41,7 +38,7 @@
               <span>
 
                 <%= button_to "❤︎", destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" %>
-              
+
               </span>
               <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id)  %>
             </td>
@@ -60,13 +57,12 @@
 </div><!-- /.mypage -->
 
 <script type="text/javascript">
-function check(){
-if(window.confirm('本当に削除しますか？')){
-return true;
-}
-else{
-window.alert('キャンセルされました');
-return false;
-}
-}
+  function check() {
+    if (window.confirm('本当に削除しますか？')) {
+      return true;
+    } else {
+      window.alert('キャンセルされました');
+      return false;
+    }
+  }
 </script>

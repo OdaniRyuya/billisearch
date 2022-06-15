@@ -15,9 +15,25 @@ $link-color : #0066c0;
 フォント関係
 =================================*/
 @mixin section-title {
+  position: relative;
+  display: inline-block;
   font-size: 28px;
-  text-align: center;
   padding: 50px 0;
+  color: $main-color-light;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    display: inline-block;
+    width: 60px;
+    height: 5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: $main-color-light;
+    border-radius: 2px;
+  }
 }
 
 /*================================
@@ -34,7 +50,8 @@ $header-height: 70px;
     max-width: 800px;
     margin: 50px auto;
     border-collapse: collapse;
-    table-layout: fixed
+    table-layout: fixed;
+    padding-bottom: 60px;
   }
 
   thead {
@@ -443,8 +460,12 @@ footer {
     }
   }
 
-  h3 {
-    @include section-title;
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+    }
   }
 
   &-pagination {
@@ -490,8 +511,13 @@ footer {
     }
   }
 
-  h3 {
-    @include section-title;
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+    }
+
   }
 
   @include table;
@@ -589,9 +615,18 @@ footer {
 =================================*/
 .mypage {
   padding-top: $header-height + 100px;
+  background-color: $back-color;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 70px;
 
-  h3 {
-    @include section-title;
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+    }
+
   }
 
   &-img {
@@ -608,19 +643,34 @@ footer {
   }
 
   &-container {
-    width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 0 50px;
   }
 
   &-profile {
-    @include table;
+    ul {
+      width: 400px;
+      margin: 40px auto;
+
+      li {
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+    }
   }
 
   &-favorite {
     @include table;
     @include table-wrap;
+    padding-bottom: 70px;
 
-    &-name {}
+    table {
+      margin-top: 0;
+    }
+
   }
 
   .favorite-check {
@@ -635,6 +685,7 @@ footer {
 .user-edit {
   padding-top: $header-height + 100px;
   padding-bottom: 100px;
+  background-color: $back-color;
 
   &-img {
     height: 200px;
@@ -656,14 +707,29 @@ footer {
 
   &-list {
     padding: 18px 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .link-below-user-form {
+    max-width: 800px;
+    margin: 0 auto;
+
   }
 
   .container {
-    width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 0 50px 50px;
 
-    h4 {
-      @include section-title;
+    .section-title {
+      text-align: center;
+
+      h3 {
+        @include section-title;
+      }
+
     }
 
     label {
