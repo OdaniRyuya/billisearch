@@ -429,6 +429,7 @@ footer {
 
   &-pagination {
     margin: 50px auto;
+
     .pagination {
       span {
         a {
@@ -626,6 +627,11 @@ footer {
       height: 100%;
       border-radius: 100%;
     }
+  }
+
+  h5 {
+    font-size: 18px;
+    color: #DA1212;
   }
 
   &-list {

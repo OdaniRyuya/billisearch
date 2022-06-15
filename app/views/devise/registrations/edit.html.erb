@@ -12,6 +12,9 @@
         <img src="/assets/profile-image.png" %>
         <% end %>
       </div><!-- /.user-edit-img -->
+      <% if resource.email == 'guest@example.com' %>
+      <h5>※ゲストユーザーは編集できません</h5>
+      <% end %>
       <%= f.label :image, "ユーザー画像" %>
       <%= f.file_field :image, autofocus: true, class: "form-control" %>
     </ul>
@@ -34,9 +37,20 @@
       <%= f.label :password_confirmation, "パスワード変更(確認)" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "再度ご入力ください" %>
     </ul>
-    <%= f.submit "変更する", class: "btn btn-primary form-submit-btn" %>
+    <% if resource.email != 'guest@example.com' %>
+      <%= f.submit "変更する", class: "btn btn-primary form-submit-btn" %>
+    <% end %>
     <%= link_to  "マイページへ", user_path(current_user), class: "link-below-user-form" %>
     <% end %>
   </div>
-
 </div><!-- /.user-edit -->
+
+<% if resource.email == 'guest@example.com' %>
+<script type="text/javascript">
+  $(function () {
+    $('.edit_user :input').prop('disabled', true);
+    $('.edit_user :input').prop('disabled', true);
+    $('.form-submit-btn').off('mouseenter mouseleave');
+  });
+</script>
+<% end %>
