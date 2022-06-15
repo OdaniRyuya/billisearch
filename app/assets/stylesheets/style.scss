@@ -208,6 +208,17 @@ a:hover {
   }
 }
 
+/*================================
+フッター
+=================================*/
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+
 
 /*================================
 トップページ
@@ -248,57 +259,6 @@ a:hover {
     height: 30px;
     border-radius: 10px;
   }
-}
-
-.hall {
-  padding: 150px 0px;
-  background-color: cornsilk;
-
-  h3 {
-    @include section-title;
-  }
-
-  &-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &-map {
-    margin-left: 60px;
-
-    img {
-      height: 400px;
-    }
-  }
-
-  &-left {
-    width: 40%;
-  }
-
-  &-add {
-    background-color: azure;
-    width: 300px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-  }
-
-  &-list {
-    margin-top: 20px;
-  }
-
-  &-item {
-    margin-bottom: 10px;
-  }
-}
-
-footer {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
 }
 
 /*================================

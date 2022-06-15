@@ -3,14 +3,8 @@
 
   <body>
     <section class="halls">
-
-      <h3>検索する</h3>
-      <%= search_form_for @search, url: billisearch_halls_path do |f| %>
-      <%= f.text_field :name %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit "検索" %>
-      <% end %>
-
+    
+      <%= render "shared/hall_search" %>
       <% @search_halls.each do |r| %>
       <p><%= r.name %></p>
       <% end %>
