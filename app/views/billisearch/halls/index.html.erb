@@ -28,19 +28,29 @@
           <tr>
             <td>
               <span><%= h.reviews.count %></span>
-              <span>検索結果</span>
+              <span><i class="fa-solid fa-comments"></i></span>
               <span><%= h.favorites.count %></span>
               <span>
-                <!-- サインインしている場合 -->
+                <!-- サインインしている場合のみお気に入りできる -->
                 <% if user_signed_in? %>
                 <% if current_user.favorite_find(h.id) %>
-                <%= button_to '❤︎', destroy_favorite_path(h.id), method: :delete, class: "favorite-check" %>
+
+                <%= button_to destroy_favorite_path(h.id), method: :delete, class: "favorite-check" do %>
+                <i class="fa-solid fa-heart"></i>
+                <% end %>
+
                 <% else %>
-                <%= button_to '❤︎', create_favorite_path(h.id) , method: :post , class: "favorite-no-check" %>
+
+                <%= button_to create_favorite_path(h.id) , method: :post , class: "favorite-no-check" do %>
+                <i class="fa-solid fa-heart"></i>
+                <% end %>
+
                 <% end %>
                 <!-- サインインしていない場合 -->
                 <% else %>
-                <%= button_to '❤︎' , class: "favorite-no-check" %>
+                <%= button_to new_user_session_path, class: "favorite-no-check" do %>
+                <i class="fa-solid fa-heart-circle-xmark"></i>
+                <% end %>
                 <% end %>
               </span>
               <%= link_to "#{h.name}", billisearch_hall_path(h)  %>
