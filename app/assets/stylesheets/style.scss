@@ -6,6 +6,7 @@
 $main-color: #125B50;
 $main-color-light: #0CA877;
 $sub-color: #D6224A;
+$back-color: #E8FFED;
 $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
 $link-color : #0066c0;
@@ -16,7 +17,7 @@ $link-color : #0066c0;
 @mixin section-title {
   font-size: 28px;
   text-align: center;
-  margin: 50px 0;
+  padding: 50px 0;
 }
 
 /*================================
@@ -269,13 +270,14 @@ footer {
 .halls {
   padding-top: $header-height;
   font-size: 14px;
-  background-color: #DFDFDE;
+
 
   &-container {
     max-width: 1700px;
     margin: 0 auto;
-    background-color: aquamarine;
+    background-color: $back-color;
     padding: 0 130px;
+
   }
 
   &-sort {
@@ -285,7 +287,8 @@ footer {
   }
 
   &-list {
-    background-color: #125B50;
+    margin-top: 10px;
+    background-color: $main-color;
     padding: 30px;
     width: 100%;
     display: flex;
@@ -420,12 +423,31 @@ footer {
     }
   }
 
-
-
   h3 {
     @include section-title;
   }
 
+  &-pagination {
+    margin: 50px auto;
+    .pagination {
+      span {
+        a {
+          background-color: #fff;
+          padding: 10px 14px;
+          border-radius: 10px;
+          margin-right: 7px;
+        }
+      }
+
+      .current {
+        background-color: $main-color-light;
+        padding: 10px 14px;
+        border-radius: 10px;
+        margin-right: 7px;
+        cursor: default;
+      }
+    }
+  }
 }
 
 /*================================

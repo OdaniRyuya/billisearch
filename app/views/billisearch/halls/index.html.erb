@@ -51,6 +51,7 @@
                 <div class="halls-item-review-img">
                   <img src=<%= r.user.image %>>
                 </div><!-- /.hall-item-review-img -->
+
                 <div class="halls-item-review-summary">
                   <p class="name"><%= r.user.name %></p>
                   <p class="content"><%= r.content %></p>
@@ -59,17 +60,16 @@
               <% end %>
               <% end %>
 
-
               <%= link_to "詳細はこちら", billisearch_hall_path(h), class:"halls-item-show" %>
 
             </div><!-- /.halls-item-inner -->
           </li><!-- /.halls-item -->
           <% end %>
+          <div class="halls-pagination">
+            <%= paginate @search_halls %>
+          </div><!-- /.halls-pagination -->
         </ul><!-- /.halls-list -->
 
-
-
-        <%= paginate @search_halls %>
 
       </div><!-- /.halls-container -->
     </section><!-- /.halls -->
