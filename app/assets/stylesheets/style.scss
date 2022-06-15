@@ -4,9 +4,11 @@
 カラー変数
 =================================*/
 $main-color: #125B50;
+$main-color-light: #0CA877;
 $sub-color: #D6224A;
 $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
+$link-color : #0066c0;
 
 /*================================
 フォント関係
@@ -267,39 +269,125 @@ footer {
 .halls {
   padding-top: $header-height;
   font-size: 14px;
+  background-color: #DFDFDE;
+
+  &-container {
+    max-width: 1700px;
+    margin: 0 auto;
+    background-color: aquamarine;
+    padding: 0 130px;
+  }
+
+  &-sort {
+    a {
+      padding-right: 10px;
+    }
+  }
+
+  &-list {
+    background-color: #125B50;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &-item {
+    width: calc(33.3% - 30px * 2 / 3);
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-radius: 5px;
+
+
+
+    &-inner {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 30px;
+
+      a {
+        display: inline-block;
+
+      }
+
+      &>* {
+        margin-bottom: 10px;
+        word-break: break-all;
+        font-size: 15px;
+
+        &:empty{
+          display: none;
+
+        }
+      }
+    }
+
+    &-img {
+      height: 200px;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-favorite,
+    &-review {
+      display: flex;
+      justify-content: left;
+
+      i {
+        width: 23px;
+        text-align: left;
+      }
+    }
+
+    &-name {
+      font-weight: bold;
+      font-size: 17px;
+
+      a {
+        color: $main-color-light;
+      }
+    }
+
+    &-url {
+      color: $link-color;
+    }
+
+    &-show {
+      display: inline-block;
+      width: 100%;
+      background-color: #125B50;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 17px;
+      border-radius: 5px;
+    }
+  }
+
 
   .favorite-check {
     color: #DA1212;
-    margin-right: 10px;
+
   }
 
   .favorite-no-check {
     color: gray;
-    margin-right: 10px;
+
   }
 
-  &-img {
-    height: 300px;
-    width: 600px;
-    margin: 0 auto;
-
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-  }
 
   h3 {
     @include section-title;
   }
 
-  @include table;
-  @include table-wrap;
-
-  span {
-    display: inline-block;
-  }
 }
 
 /*================================

@@ -3,72 +3,60 @@
 
   <body>
     <section class="halls">
-      <h3>ビリヤード場一覧</h3>
-      <div class="halls-sort">
-        <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
-        <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
-        <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
-        <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
-      </div><!-- /.halls-sort -->
+      <div class="halls-container">
 
-      <table>
-        <thead>
-          <tr>
-            <th class="name">店舗名</th>
-            <th class="address">住所</th>
-            <th class="delete">削除</th>
 
-          </tr>
-        </thead>
-        <tbody>
 
-          <!-- 検索された時の表示-->
+        <div class="halls-sort">
+          <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true") %>
+          <%= link_to '更新が古い順', billisearch_halls_path(updated_DESC: "true") %>
+          <%= link_to 'お気に入り順', billisearch_halls_path(favorites_DESC: "true") %>
+          <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
+        </div><!-- /.halls-sort -->
 
+
+        <ul class="halls-list">
           <% @search_halls.each do |h| %>
-          <tr>
-            <td>
-              <span><%= h.reviews.count %></span>
-              <span><i class="fa-solid fa-comments"></i></span>
-              <span><%= h.favorites.count %></span>
-              <span>
-                <!-- サインインしている場合のみお気に入りできる -->
-                <% if user_signed_in? %>
+          <li class="halls-item">
+            <div class="halls-item-inner">
+              <div class="halls-item-img">
+                <img src="/assets/playplan.jpg" %>
+              </div><!-- /.halls-item-img -->
 
-                <% if current_user.favorite_find(h.id) %>
+              <div class="halls-item-favorite">
+                <%= render partial: "favorite", locals: {h: h} %>
+                <p><%= h.favorites.count %></p>
+              </div><!-- /.halls-item-favorite -->
 
-                <%= button_to destroy_favorite_path(h.id), method: :delete, class: "favorite-check" do %>
-                <i class="fa-solid fa-heart"></i>
-                <% end %>
+              <div class="halls-item-review">
+                <i class="fa-solid fa-comments"></i>
+                <p><%= h.reviews.count %></p>
+              </div><!-- /.halls-item-review -->
 
-                <% else %>
+              <h4 class="halls-item-name">
+                <%= link_to "#{h.name}", billisearch_hall_path(h) %>
+              </h4>
+              <p><%= h.address %></p>
+              <p><%= h.tel %></p>
+              <% if h.email.present? %>
+              <p><%= h.email %></p>
+              <% end %>
+              <p><%= link_to "#{h.url}", "#{h.url}", class: "halls-item-url" %></p>
+              <p><%= h.price %></p>
+              <p><%= h.time %></p>
+              <p><%= h.open %></p>
+              <%= link_to "詳細はこちら", billisearch_hall_path(h), class:"halls-item-show" %>
 
-                <%= button_to create_favorite_path(h.id) , method: :post , class: "favorite-no-check" do %>
-                <i class="fa-solid fa-heart"></i>
-                <% end %>
-
-                <% end %>
-                <!-- サインインしていない場合 -->
-                <% else %>
-                <%= button_to new_user_session_path, class: "favorite-no-check" do %>
-                <i class="fa-solid fa-heart-circle-xmark"></i>
-
-                
-                <% end %>
-
-                <% end %>
-              </span>
-              <%= link_to "#{h.name}", billisearch_hall_path(h)  %>
-            </td>
-            <td><%= h.address %></td>
-            <td>
-              <%= button_to "削除", billisearch_hall_path(h), method: :delete %>
-            </td>
-          </tr>
+            </div><!-- /.halls-item-inner -->
+          </li><!-- /.halls-item -->
           <% end %>
+        </ul><!-- /.halls-list -->
 
-        </tbody>
-      </table>
-      <%= paginate @search_halls %>
+
+
+        <%= paginate @search_halls %>
+
+      </div><!-- /.halls-container -->
     </section><!-- /.halls -->
 
     <script src="./js/script.js"></script>

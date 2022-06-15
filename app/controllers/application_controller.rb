@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Hall.ransack(params[:q])
     @search_halls = @q.result
-    ##この時点では検索結果がsearch_hallsに保存されている
   end
 
   private
