@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
   PAGINATION_MAX_HALLS_COUNT = 4
 
   def set_search
-    @search = Hall.ransack(params[:q])
-    @search_halls = @search.result
+    @q = Hall.ransack(params[:q])
+    @search_halls = @q.result
+    ##この時点では検索結果がsearch_hallsに保存されている
   end
 
   private

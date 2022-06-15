@@ -1,19 +1,18 @@
 class Billisearch::HallsController < ApplicationController
 
   def index
+
     if params[:updated_ASC]
-      @search_halls = Hall.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+      @search_halls = @search_halls.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     elsif params[:updated_DESC]
-      @search_halls = Hall.updated_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+      @search_halls = @search_halls.updated_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     elsif params[:favorites_DESC]
-      @search_halls = Hall.favorites_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+      @search_halls = @search_halls.favorites_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     elsif params[:reviews_DESC]
-      @search_halls = Hall.reviews_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+      @search_halls = @search_halls.reviews_desc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     else
-      @search_halls = Hall.all.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
+      @search_halls = @search_halls.updated_asc.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
     end
-
-
   end
 
   def new
