@@ -10,6 +10,7 @@ $back-color: #F2DCBB;
 $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
 $link-color : #0066c0;
+$font-color : #333;
 
 /*================================
 フォント関係
@@ -104,6 +105,7 @@ $header-height: 70px;
 body {
   width: 100%;
   position: relative;
+  color: $font-color;
 }
 
 li {
@@ -111,7 +113,7 @@ li {
 }
 
 a {
-  color: #000;
+  color: $font-color;
   text-decoration: none;
 }
 
@@ -148,6 +150,12 @@ a:hover {
   justify-content: space-between;
   padding: 0px 30px;
 
+  #hall_search {
+    .action:hover {
+      background-color: $main-color-light;
+    }
+  }
+
   &-left {
     display: flex;
     align-items: center;
@@ -160,10 +168,6 @@ a:hover {
 
   &-item {
     margin-left: 20px;
-
-    a {
-      text-decoration: none;
-    }
   }
 
   &-guest,
@@ -200,6 +204,7 @@ a:hover {
     width: 50px;
     height: 50px;
     position: relative;
+    cursor: pointer;
 
     img {
       width: 100%;
@@ -211,21 +216,50 @@ a:hover {
   }
 
   &-drop-list {
-    background-color: #DA1212;
+    display: none;
+    background-color: $main-color;
     position: absolute;
     right: 0;
     top: 70px;
     text-align: center;
+    border: solid #fff;
+    border-width: 0px 2px 2px 2px;
+
   }
 
   &-drop-item {
     line-height: normal;
 
     a {
-      padding: 10px 30px;
+      text-decoration: none;
+      position: relative;
+      margin: 10px 30px;
       display: inline-block;
+      border-bottom: 1px solid #fff;
+
+      &::after {
+        /*アンダーラインのスタイル*/
+        position: absolute;
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: $main-color-light;
+        bottom: -2px;
+        left: 0;
+        /*幅を0に設定*/
+        width: 0;
+        /*アニメーションの速度設定*/
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      &:hover::after {
+        /*幅を100%に設定*/
+        width: 100%;
+      }
     }
   }
+
 }
 
 /*================================
