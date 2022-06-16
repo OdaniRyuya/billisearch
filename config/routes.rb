@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   
   namespace :billisearch do
+    get 'terms_page'
     get 'home'
     post 'new_guest'
     resources :halls
