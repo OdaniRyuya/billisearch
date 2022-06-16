@@ -3,79 +3,93 @@
 
   <body>
     <section class="hall-show">
-      <h3><%= @hall.name %></h3>
-      <div class="hall-show-img">
-        <%= image_tag @hall.image %>
-      </div><!-- /.halls-img -->
-      <table>
-        <tbody>
-          <tr>
-            <th>住所</th>
-            <td><%= @hall.name %></td>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <td><%= @hall.tel %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= @hall.email %></td>
-          </tr>
-          <tr>
-            <th>料金</th>
-            <td><%= @hall.price %></td>
-          </tr>
-          <tr>
-            <th>営業時間</th>
-            <td><%= @hall.time %></td>
-          </tr>
-          <tr>
-            <th>駐車場</th>
-            <td><%= @hall.parking %></td>
-          </tr>
-          <tr>
-            <th>台数</th>
-            <td><%= @hall.billiards %></td>
-          </tr>
-          <tr>
-            <th>HP</th>
-            <td><%= @hall.url %></td>
-          </tr>
-          <tr>
-            <th>お店のPR</th>
-            <td><%= @hall.pr %></td>
-          </tr>
-          <tr>
-            <th>オープン</th>
-            <td><%= @hall.open %></td>
-          </tr>
-          <tr>
-            <th>補足事項</th>
-            <td><%= @hall.lead %></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="hall-review">
-        <ul class="hall-review-list">
-          <li><%= "口コミが入ります" %></li>
-          <li>
+      <div class="hall-show-container">
+        <div class="section-title">
+          <h3>Hall details</h3>
+        </div><!-- /.section-title -->
+        <div class="hall-show-img">
+          <%= image_tag @hall.image %>
+        </div><!-- /.halls-img -->
+        <table>
+          <tbody>
+            <tr>
+              <th>店名</th>
+              <td><%= @hall.name %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @hall.address %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= @hall.tel %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @hall.email %></td>
+            </tr>
+            <tr>
+              <th>料金</th>
+              <td><%= @hall.price %></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td><%= @hall.time %></td>
+            </tr>
+            <tr>
+              <th>駐車場</th>
+              <td><%= @hall.parking %></td>
+            </tr>
+            <tr>
+              <th>台数</th>
+              <td><%= @hall.billiards %></td>
+            </tr>
+            <tr>
+              <th>HP</th>
+              <td><%= @hall.url %></td>
+            </tr>
+            <tr>
+              <th>お店のPR</th>
+              <td><%= @hall.pr %></td>
+            </tr>
+            <tr>
+              <th>オープン</th>
+              <td><%= @hall.open %></td>
+            </tr>
+            <tr>
+              <th>補足事項</th>
+              <td><%= @hall.lead %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="hall-review">
+          <ul class="hall-review-list">
             <% @reviews.each do |review| %>
-            <p><%= review.content %></p>
-            <img src=<%= review.user.image %>>
-            <p><%= review.user.name %></p>
-            <% end %>            
-          </li>
+            <li class="hall-review-item">
+              <div class="hall-review-item-img">
+                <img src="/assets/playplan.jpg">
+              </div><!-- /.hall-review-item-img -->
+              <div class="hall-review-item-content">
+                <p class="hall-review-item-name"><%= review.user.name %></p>
+                <p class="hall-review-item-content"><%= review.content %></p>
 
-          <%= form_with model: @review, url: reviews_path do |f| %>
-          <%= f.hidden_field :hall_id, value: @hall.id %>
-          <li><%= f.label :content ,"口コミ内容" %></li>
-          <li><%= f.text_area :content %></li>
-          <li><%= f.submit "レビューを投稿する" %></li>
-          <% end %>
+              </div><!-- /.hall-review-item-content -->
+
+              <% end %>
+            </li>
+
+            <%= form_with model: @review, url: reviews_path do |f| %>
+            <%= f.hidden_field :hall_id, value: @hall.id %>
+            <li><%= f.label :content ,"口コミ内容" %></li>
+
+            <li><%= f.text_area :content %></li>
+            <li><%= f.submit "レビューを投稿する", class:"action" %></li>
+            <% end %>
 
 
-        </ul><!-- /.hall-review-list -->
-      </div><!-- /.hall-review -->
+          </ul><!-- /.hall-review-list -->
+        </div><!-- /.hall-review -->
+      </div><!-- /.halls-show-container -->
     </section><!-- /.halls -->
     <script src="./js/script.js"></script>
   </body>
