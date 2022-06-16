@@ -34,7 +34,7 @@
             </div><!-- /.mypage-halls-img -->
 
             <%= button_to destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" do %>
-            <i class="fa-solid fa-heart"></i>
+            <i></i>
             <% end %>
             <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id), class: "mypage-halls-item-name" %>
             <p>
@@ -45,19 +45,12 @@
           </div><!-- /.mypage-halls-item-inner -->
         </li><!-- /.mypage-halls-item -->
       </ul><!-- /.mypage-halls-list -->
+      <div class="mypage-halls-pagination">
+        <%= paginate @user_favorites_pagination %>
+      </div><!-- /.mypage-halls-pegination -->
       <% end %>
+
     </div><!-- /.mypage-favorite -->
 
   </div><!-- /.mypage-container -->
 </div><!-- /.mypage -->
-
-<script type="text/javascript">
-  function check() {
-    if (window.confirm('本当に削除しますか？')) {
-      return true;
-    } else {
-      window.alert('キャンセルされました');
-      return false;
-    }
-  }
-</script>

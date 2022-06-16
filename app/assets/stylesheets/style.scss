@@ -111,6 +111,7 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
+
 }
 
 li {
@@ -566,7 +567,6 @@ footer {
           margin-right: 7px;
           border: 1px solid #fff;
 
-
           &:not(.current):hover {
             background-color: $main-color;
             color: #fff;
@@ -799,6 +799,7 @@ footer {
 
     h3 {
       @include section-title;
+      color: $font-color;
     }
 
   }
@@ -820,7 +821,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 0 50px;
+    padding: 0 50px 50px;
   }
 
   &-profile {
@@ -837,15 +838,68 @@ footer {
   }
 
   &-favorite {
-    padding-bottom: 70px;
+    background-color: $main-color;
+    padding-bottom: 30px;
   }
 
   .favorite-check {
     color: $sub-color;
     padding-right: 10px;
+    margin-bottom: 10px;
+
+    i::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f004";
+      font-weight: 900;
+    }
+
+    i {
+      transition: 0.3s;
+    }
+
+    &:hover {
+      content: "\f7a9";
+      color: $secondary-color;
+    }
   }
 
   &-halls {
+    &-pagination {
+      width: 300px;
+      margin: 0 auto;
+
+      .pagination {
+
+        span {
+          a {
+            background-color: #fff;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-right: 7px;
+            border: 1px solid #fff;
+
+            &:not(.current):hover {
+              background-color: $main-color;
+              color: #fff;
+              border: 1px solid #fff;
+              box-sizing: border-box;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .current {
+          color: #fff;
+          font-weight: bold;
+          background-color: $main-color-light;
+          padding: 10px 14px;
+          border-radius: 10px;
+          margin-right: 7px;
+          cursor: default;
+        }
+      }
+    }
+
     &-list {
       display: flex;
       flex-wrap: wrap;
@@ -853,7 +907,7 @@ footer {
       align-items: baseline;
       width: 100%;
       max-width: 1300px;
-      background-color: $main-color;
+
       padding: 30px;
     }
 
@@ -917,6 +971,7 @@ footer {
     }
   }
 }
+
 
 /*================================
 ユーザー編集
