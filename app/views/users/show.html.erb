@@ -1,9 +1,9 @@
 <div class="mypage">
   <div class="mypage-container">
     <div class="section-title">
-      <h3>マイページ</h3>
+      <h3 class="wow fadeInUp">マイページ</h3>
     </div><!-- /.section-title -->
-    <div class="mypage-img">
+    <div class="mypage-img wow fadeInUp">
       <% if current_user.image? %>
       <img src=<%= current_user.image %>>
       <% else %>
@@ -11,7 +11,7 @@
       <% end %>
     </div><!-- /.mypage-img -->
 
-    <div class="mypage-profile">
+    <div class="mypage-profile wow fadeInUp">
       <ul>
         <li><%= current_user.name %></li>
         <li><%= current_user.email %></li>
@@ -19,7 +19,7 @@
     </div><!-- /.mypage-profile -->
 
     <div class="mypage-favorite">
-      <div class="section-title">
+      <div class="section-title wow fadeInUp">
         <h3>お気に入り</h3>
       </div><!-- /.section-title -->
 
@@ -27,7 +27,7 @@
       <% if @user.favorites.present? %>
       <ul class="mypage-halls-list">
         <% @user.favorites.each do |favorite| %>
-        <li class="mypage-halls-item">
+        <li class="mypage-halls-item wow fadeInUp">
           <div class="mypage-halls-item-inner">
             <div class="mypage-halls-img">
               <img src="/assets/playplan.jpg" %>
@@ -46,7 +46,6 @@
         </li><!-- /.mypage-halls-item -->
       </ul><!-- /.mypage-halls-list -->
       <% end %>
-
     </div><!-- /.mypage-favorite -->
 
   </div><!-- /.mypage-container -->

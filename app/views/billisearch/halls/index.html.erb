@@ -5,11 +5,11 @@
     <section class="halls">
       <div class="halls-container">
 
-        <div class="section-title">
+        <div class="section-title wow fadeInUp"">
           <h3>検索結果:<%=  @search_halls_count.length %>件</h3>
         </div><!-- /.section-title -->
 
-        <div class="halls-sort">
+        <div class="halls-sort wow fadeInUp"">
           <ul>
             <li
               class="<%= "current" if current_page?(billisearch_halls_path(updated_ASC: "true")) || @current_flag == true %>">
@@ -33,7 +33,7 @@
 
         <ul class="halls-list">
           <% @search_halls.each do |h| %>
-          <li class="halls-item">
+          <li class="halls-item wow fadeInUp">
             <div class="halls-item-inner">
               <div class="halls-item-img">
                 <img src="/assets/playplan.jpg" %>
@@ -83,7 +83,7 @@
             </div><!-- /.halls-item-inner -->
           </li><!-- /.halls-item -->
           <% end %>
-          <div class="halls-pagination">
+          <div class="halls-pagination wow fadeInUp"">
             <%= paginate @search_halls %>
           </div><!-- /.halls-pagination -->
         </ul><!-- /.halls-list -->
