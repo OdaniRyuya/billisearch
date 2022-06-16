@@ -22,35 +22,31 @@
       <div class="section-title">
         <h3>お気に入り</h3>
       </div><!-- /.section-title -->
-      <table>
-        <thead>
-          <tr>
-            <th>店舗名</th>
-            <th>住所</th>
-          </tr>
-        </thead>
-        <tbody>
 
-          <% if @user.favorites.present? %>
-          <% @user.favorites.each do |favorite| %>
-          <tr>
-            <td class="mypage-favorite-name">
-              <span>
 
-                <%= button_to "❤︎", destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" %>
+      <% if @user.favorites.present? %>
+      <ul class="mypage-halls-list">
+        <% @user.favorites.each do |favorite| %>
+        <li class="mypage-halls-item">
+          <div class="mypage-halls-item-inner">
+            <div class="mypage-halls-img">
+              <img src="/assets/playplan.jpg" %>
+            </div><!-- /.mypage-halls-img -->
 
-              </span>
-              <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id)  %>
-            </td>
-            <td>
+            <%= button_to destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" do %>
+            <i class="fa-solid fa-heart"></i>
+            <% end %>
+            <%= link_to "#{favorite.hall.name}", billisearch_hall_path(favorite.hall.id), class: "mypage-halls-item-name" %>
+            <p>
               <%= favorite.hall.address %>
-            </td>
-          </tr>
-          <% end %>
-          <% end %>
+            </p>
+            <%= link_to "詳細はこちら",  billisearch_hall_path(favorite.hall.id), class:"mypage-halls-item-show" %>
+            <% end %>
+          </div><!-- /.mypage-halls-item-inner -->
+        </li><!-- /.mypage-halls-item -->
+      </ul><!-- /.mypage-halls-list -->
+      <% end %>
 
-        </tbody>
-      </table>
     </div><!-- /.mypage-favorite -->
 
   </div><!-- /.mypage-container -->
