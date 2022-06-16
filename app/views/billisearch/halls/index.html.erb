@@ -11,7 +11,8 @@
 
         <div class="halls-sort">
           <ul>
-            <li class="<%= "current" if current_page?(billisearch_halls_path(updated_ASC: "true")) %>">
+            <li
+              class="<%= "current" if current_page?(billisearch_halls_path(updated_ASC: "true")) || @current_flag == true %>">
               <%= link_to '新着順', billisearch_halls_path(updated_ASC: "true")%>
             </li>
             <li class="<%= "current" if current_page?(billisearch_halls_path(updated_DESC: "true")) %>">
@@ -22,8 +23,11 @@
             </li>
             <li class="<%= "current" if current_page?(billisearch_halls_path(reviews_DESC: "true")) %>">
               <%= link_to '口コミが多い順', billisearch_halls_path(reviews_DESC: "true") %>
+
             </li>
+
           </ul>
+
         </div><!-- /.halls-sort -->
 
 
