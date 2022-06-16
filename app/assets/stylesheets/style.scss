@@ -356,6 +356,8 @@ footer {
     box-shadow: 10px 10px 15px -10px;
   }
 
+
+
   &-sort {
 
     ul {
@@ -399,9 +401,13 @@ footer {
     }
   }
 
+  &-inner {
+    background-color: $main-color;
+    padding-bottom: 30px;
+  }
+
   &-list {
     margin-top: 10px;
-    background-color: $main-color;
     padding: 30px;
     width: 100%;
     display: flex;
@@ -557,6 +563,7 @@ footer {
 
   &-pagination {
     margin: 50px auto;
+    width: 300px;
 
     .pagination {
       span {
