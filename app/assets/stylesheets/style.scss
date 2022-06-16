@@ -3,10 +3,9 @@
 /*================================
 カラー変数
 =================================*/
-$main-color: #C2DED1;
+$main-color: #AEDBCE;
 $main-color-light: #0CA877;
 $sub-color: #D6224A;
-$back-color: #F2DCBB;
 $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
 $link-color : #0066c0;
@@ -151,8 +150,14 @@ a:hover {
   padding: 0px 30px;
 
   #hall_search {
-    .action:hover {
+
+    .action {
       background-color: $main-color-light;
+      color: #fff;
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 
@@ -321,7 +326,7 @@ footer {
 .halls {
   padding-top: $header-height;
   font-size: 14px;
-  background-color: $back-color;
+  background-color: $main-color;
   padding: 40px;
 
 
@@ -341,12 +346,37 @@ footer {
 
       a {
         margin-right: 10px;
+        display: inline-block;
+        position: relative;
+
+        &::after {
+          /*アンダーラインのスタイル*/
+          position: absolute;
+          content: "";
+          display: block;
+          height: 1px;
+          background-color: $main-color-light;
+          bottom: -2px;
+          left: 0;
+          /*幅を0に設定*/
+          width: 0;
+          /*アニメーションの速度設定*/
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+        }
+
+        &:hover::after {
+          /*幅を100%に設定*/
+          width: 100%;
+
+        }
       }
 
       .current {
         a {
           color: $main-color-light;
           border-bottom: 1px solid $main-color;
+
         }
       }
     }
@@ -428,6 +458,10 @@ footer {
 
       a {
         color: $main-color-light;
+
+        &:hover {
+          color: $link-color;
+        }
       }
     }
 
@@ -478,7 +512,7 @@ footer {
     &-show {
       display: inline-block;
       width: 100%;
-      background-color: #125B50;
+      background-color: $main-color-light;
       text-align: center;
       height: 40px;
       line-height: 40px;
@@ -487,6 +521,12 @@ footer {
       font-size: 17px;
       border-radius: 5px;
       margin-top: 20px;
+
+      &:hover {
+        background-color: #fff;
+        color: $main-color-light;
+        border: 1px solid $main-color-light;
+      }
     }
   }
 
@@ -508,10 +548,22 @@ footer {
           padding: 10px 14px;
           border-radius: 10px;
           margin-right: 7px;
+          border: 1px solid #fff;
+
+
+          &:not(.current):hover {
+            background-color: $main-color;
+            color: #fff;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            font-weight: bold;
+          }
         }
       }
 
       .current {
+        color: #fff;
+        font-weight: bold;
         background-color: $main-color-light;
         padding: 10px 14px;
         border-radius: 10px;
@@ -528,7 +580,7 @@ footer {
 .hall-show {
   padding-top: $header-height;
   font-size: 14px;
-  background-color: $back-color;
+  background-color: $main-color;
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 10px;
@@ -721,7 +773,7 @@ footer {
 =================================*/
 .mypage {
   padding-top: $header-height + 100px;
-  background-color: $back-color;
+  background-color: $main-color;
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
@@ -805,6 +857,10 @@ footer {
         color: $main-color-light;
         padding-bottom: 10px;
         display: inline-block;
+
+        &:hover {
+          color: $link-color;
+        }
       }
 
       &-show {
@@ -819,6 +875,11 @@ footer {
         line-height: 30px;
         border-radius: 5px;
 
+        &:hover {
+          background-color: #fff;
+          color: $main-color-light;
+          border: 1px solid $main-color-light;
+        }
       }
 
       p {
@@ -847,7 +908,7 @@ footer {
 .user-edit {
   padding-top: $header-height + 100px;
   padding-bottom: 100px;
-  background-color: $back-color;
+  background-color: $main-color;
 
   &-img {
     height: 200px;
