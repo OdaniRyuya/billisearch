@@ -26,7 +26,7 @@
 
       <% if @user.favorites.present? %>
       <ul class="mypage-halls-list">
-        <% @user.favorites.each do |favorite| %>
+        <% @user_favorites_pagination.each do |favorite| %>
         <li class="mypage-halls-item wow fadeInUp">
           <div class="mypage-halls-item-inner">
             <div class="mypage-halls-img">

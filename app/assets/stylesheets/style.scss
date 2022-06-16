@@ -869,7 +869,6 @@ footer {
       margin: 0 auto;
 
       .pagination {
-
         span {
           a {
             background-color: #fff;
@@ -907,8 +906,13 @@ footer {
       align-items: baseline;
       width: 100%;
       max-width: 1300px;
-
       padding: 30px;
+
+      &::after {
+        content: "";
+        width: calc(33.3% - 30px * 2 / 3);
+        display: block;
+      }
     }
 
     &-item {

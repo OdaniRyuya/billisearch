@@ -5,11 +5,11 @@
     <section class="halls">
       <div class="halls-container">
 
-        <div class="section-title wow fadeInUp"">
+        <div class="section-title wow fadeInUp">
           <h3>検索結果:<%=  @search_halls_count.length %>件</h3>
         </div><!-- /.section-title -->
 
-        <div class="halls-sort wow fadeInUp"">
+        <div class="halls-sort wow fadeInUp">
           <ul>
             <li
               class="<%= "current" if current_page?(billisearch_halls_path(updated_ASC: "true")) || @current_flag == true %>">

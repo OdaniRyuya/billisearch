@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   PAGINATION_MAX_HALLS_COUNT = 6
 
+
   def set_search
     @q = Hall.ransack(params[:q])
     @search_halls = @q.result
