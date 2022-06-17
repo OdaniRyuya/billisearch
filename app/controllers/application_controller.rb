@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @q = Hall.ransack(params[:q])
     @q.sorts = ['name asc', 'id asc'] if @q.sorts.empty?
     @search_halls = @q.result
+    @search_halls_count = @search_halls
   end
 
   private
