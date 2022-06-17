@@ -13,9 +13,7 @@
           <ul>
             <li
               class="<%= "current" if params[:q][:s] == "name asc" || params[:q][:s] == "name desc" || params[:q][:s].nil? %>">
-
               <th><%= sort_link(@q, :name, "新着順") %></th>
-
             </li>
             <li
               class="<%= "current" if params[:q][:s] == "favorites_count asc" || params[:q][:s] == "favorites_count desc" %>">
@@ -25,10 +23,10 @@
               class="<%= "current" if params[:q][:s] == "reviews_count asc" || params[:q][:s] == "reviews_count desc" %>">
               <th><%= sort_link(@q, :reviews_count, "レビュー順"  ) %></th>
             </li>
-
-
           </ul>
-
+          <div class="halls-count">
+          <%= page_entries_info(@search_halls, entry_name: 'ユーザー') %>
+          </div><!-- /.halls-count -->
         </div><!-- /.halls-sort -->
 
         <div class="halls-inner">
