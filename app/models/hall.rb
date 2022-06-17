@@ -9,6 +9,11 @@ class Hall < ApplicationRecord
     Arel.sql(query)
   end
 
+  ransacker :reviews_count do
+    query = '(SELECT COUNT(reviews.hall_id) FROM reviews where reviews.hall_id = halls.id GROUP BY reviews.hall_id)'
+    Arel.sql(query)
+  end
+
 
 
 

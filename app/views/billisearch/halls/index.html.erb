@@ -12,11 +12,17 @@
 
         <div class="halls-sort wow fadeInUp">
           <ul>
-            <li class="<%= "current" if @q.sorts.empty? %>">
+            <li
+              class="<%= "current" if params[:q][:s] == "name asc" || params[:q][:s] == "name desc" %>">
               <th><%= sort_link(@q, :name, "新着順") %></th>
             </li>
-            <li>
-              <th><%= sort_link(@q, :favorites_count, "お気に入り順") %></th>
+            <li
+              class="<%= "current" if params[:q][:s] == "favorites_count asc" || params[:q][:s] == "favorites_count desc" %>">
+              <th><%= sort_link(@q, :favorites_count, "お気に入り順"  ) %></th>
+            </li>
+            <li
+              class="<%= "current" if params[:q][:s] == "reviews_count asc" || params[:q][:s] == "reviews_count desc" %>">
+              <th><%= sort_link(@q, :reviews_count, "レビュー順"  ) %></th>
             </li>
 
 
