@@ -36,6 +36,7 @@ $font-color : #333;
   }
 }
 
+
 /*================================
 ヘッダー固定でずれた高さ(ヘッダーのheightの値)
 =================================*/
@@ -111,7 +112,6 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
-
 }
 
 li {
@@ -233,7 +233,7 @@ a:hover {
 
   &-drop-list {
     display: none;
-    background-color: $main-color;
+    background-color: $secondary-color;
     position: absolute;
     right: 0;
     top: 70px;
@@ -314,15 +314,19 @@ footer {
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 55px;
     font-weight: bold;
     margin-bottom: 30px;
+    font-family: 'Anton',
+      sans-serif;
+    letter-spacing: 2px;
   }
 
   p {
     max-width: 500px;
     line-height: 1.7;
     padding-bottom: 10px;
+    font-size: 14px;
   }
 
   .hall_search {
@@ -457,10 +461,21 @@ footer {
 
     .favorite-check {
       color: #DA1212;
+      transition: 0.4s;
+
+      &:hover {
+
+        color: gray;
+      }
     }
 
     .favorite-no-check {
       color: gray;
+      transition: 0.5s;
+
+      &:hover {
+        color: #DA1212;
+      }
     }
 
 
