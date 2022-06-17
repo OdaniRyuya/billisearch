@@ -434,6 +434,7 @@ footer {
   &-inner {
     background-color: $main-color;
     padding-bottom: 30px;
+    border-radius: 5px;
   }
 
   &-list {
@@ -444,6 +445,13 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
+
+
+    &::after {
+      content: "";
+      width: calc(33.3% - 30px * 2 / 3);
+      display: block;
+    }
   }
 
   &-item {
@@ -823,7 +831,7 @@ footer {
     margin-top: 20px;
 
     input {
-      background-color: $main-color;
+      background-color: $main-color-light;
       height: 55px;
       color: #fff;
       font-size: 18px;
