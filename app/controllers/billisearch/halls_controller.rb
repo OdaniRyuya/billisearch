@@ -26,7 +26,9 @@ class Billisearch::HallsController < ApplicationController
 
   def destroy
     @hall = Hall.find(params[:id])
+
     @hall.destroy
+
 
     redirect_to billisearch_home_path
   end

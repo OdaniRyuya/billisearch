@@ -503,21 +503,12 @@ footer {
 
     .favorite-check {
       color: #DA1212;
-      transition: 0.4s;
 
-      &:hover {
-
-        color: gray;
-      }
     }
 
     .favorite-no-check {
       color: gray;
-      transition: 0.5s;
 
-      &:hover {
-        color: #DA1212;
-      }
     }
 
 
