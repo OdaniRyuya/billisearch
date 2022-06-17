@@ -7,14 +7,16 @@
 
         <div class="section-title wow fadeInUp">
 
-          <h3>検索結果:<%=  @search_halls_count.count %>件</h3>
+          <h3>検索結果:<%=  @search_halls.length %>件</h3>
         </div><!-- /.section-title -->
 
         <div class="halls-sort wow fadeInUp">
           <ul>
             <li
-              class="<%= "current" if params[:q][:s] == "name asc" || params[:q][:s] == "name desc" %>">
+              class="<%= "current" if params[:q][:s] == "name asc" || params[:q][:s] == "name desc" || params[:q][:s].nil? %>">
+
               <th><%= sort_link(@q, :name, "新着順") %></th>
+
             </li>
             <li
               class="<%= "current" if params[:q][:s] == "favorites_count asc" || params[:q][:s] == "favorites_count desc" %>">

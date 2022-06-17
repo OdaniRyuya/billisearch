@@ -2,7 +2,6 @@ class Billisearch::HallsController < ApplicationController
 
   def index
       @search_halls = @search_halls.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT) 
-      @search_halls_count = @search_halls
   end
 
   def new

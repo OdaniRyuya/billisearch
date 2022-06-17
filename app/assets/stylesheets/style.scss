@@ -190,30 +190,56 @@ a:hover {
   &-login,
   &-add-account {
     text-align: center;
-    padding: 10px 0;
     border-radius: 5px;
+    transition: 0.4s;
 
     a {
       display: inline-block;
       color: #fff;
-      width: 90px;
+      padding: 10px 20px;
     }
 
     button {
-      width: 140px;
+      padding: 10px 20px;
+      display: inline-block;
     }
   }
 
   &-guest {
     background-color: $secondary-color;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &-login {
-    background-color: $main-color;
+    background-color: $main-color-light;
+
+    &:hover {
+      background-color: #fff;
+      border: 1px solid $main-color-light;
+
+
+
+      a {
+        color: $main-color-light;
+
+      }
+    }
   }
 
   &-add-account {
     background-color: $sub-color;
+
+    &:hover {
+      background-color: #fff;
+      border: 1px solid $sub-color;
+
+      a {
+        color: $sub-color;
+      }
+    }
   }
 
   &-user-icon {
