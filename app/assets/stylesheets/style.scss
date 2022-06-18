@@ -13,7 +13,6 @@ $breakpoints: ('tab': 'screen and (max-width: 960px)',
 }
 
 @mixin mq($breakpoint: tab) {
-
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
@@ -83,6 +82,7 @@ $header-height: 70px;
     font-size: 16px;
     border: 1px solid $border-color;
   }
+
 
   td {
     border: 1px solid $border-color;
@@ -222,10 +222,30 @@ a:hover {
   justify-content: space-between;
   padding: 0px 30px;
 
+  @include mq(tab) {
+    padding: 0;
+  }
+
+  &-logo {
+    img {
+      width: 200px;
+    }
+  }
+
 
   &-left {
     display: flex;
     align-items: center;
+
+    #q_name_or_address_cont {
+      @include mq(tab) {
+        display: none;
+      }
+    }
+
+    .action {
+      @include mq(tab) {}
+    }
   }
 
   &-list {
@@ -248,11 +268,21 @@ a:hover {
       display: inline-block;
       color: #fff;
       padding: 10px 20px;
+
+      @include mq(tab) {
+        padding: 10px 5px;
+        font-size: 12px;
+      }
     }
 
     button {
       padding: 10px 20px;
       display: inline-block;
+
+      @include mq(tab) {
+        padding: 10px 5px;
+        font-size: 12px;
+      }
     }
   }
 
@@ -309,34 +339,39 @@ a:hover {
   }
 
   &-drop-list {
-    display: none;
-    background-color: $secondary-color;
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
-    right: 0;
+    right: -200px;
     top: 70px;
     text-align: center;
-    border: solid #fff;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-width: 0px 2px 2px 2px;
-
+    min-height: 100vh;
   }
 
   &-drop-item {
     line-height: normal;
+    margin-top: 10px;
+
 
     a {
+      color: #fff;
       text-decoration: none;
       position: relative;
       margin: 10px 30px;
       display: inline-block;
       border-bottom: 1px solid #fff;
+      opacity: 0.8;
+      font-size: 14px;
+
 
       &::after {
         /*アンダーラインのスタイル*/
         position: absolute;
         content: "";
         display: block;
-        height: 3px;
-        background-color: $main-color-light;
+        height: 2px;
+        background-color: #fff;
         bottom: -2px;
         left: 0;
         /*幅を0に設定*/
@@ -427,6 +462,10 @@ footer {
   background-color: $main-color;
   padding: 40px;
 
+  @include mq(tab) {
+    padding: 12px 15px;
+  }
+
 
   &-container {
     max-width: 1300px;
@@ -435,6 +474,10 @@ footer {
     padding: 50px;
     border-radius: 5px;
     box-shadow: 10px 10px 15px -10px;
+
+    @include mq(tab) {
+      padding: 20px 10px;
+    }
   }
 
 
@@ -505,6 +548,10 @@ footer {
     justify-content: space-between;
     align-items: baseline;
 
+    @include mq(tab) {
+      padding: 12px;
+    }
+
 
     &::after {
       content: "";
@@ -514,11 +561,20 @@ footer {
   }
 
   &-item {
-    width: calc(33.3% - 30px * 2 / 3);
+    width: calc(33.3% - 10px * 2 / 3);
     background-color: #fff;
     margin-bottom: 30px;
     border-radius: 5px;
     box-shadow: 10px 10px 15px -10px;
+
+    @media screen and (min-width:768px) and (max-width:1020px) {
+      width: calc(50% - 20px * 1 / 2);
+    }
+
+    @media screen and (min-width:521px) and (max-width:767px) {
+      width: 100%;
+    }
+
 
     &-inner {
       overflow: hidden;
@@ -707,6 +763,11 @@ footer {
   padding-right: 50px;
   padding-bottom: 10px;
 
+  @include mq(tab) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   &-container {
     background-color: #fff;
     max-width: 1200px;
@@ -738,9 +799,15 @@ footer {
 
   @include table;
 
+
+
   th {
     border: 1px solid $border-color;
     width: 300px;
+
+    @include mq(tab) {
+      width: 130px;
+    }
   }
 
   td {
@@ -769,6 +836,10 @@ footer {
         border-bottom: 1px solid $border-color;
       }
 
+      &-inner {
+        width: 80%;
+      }
+
       &-name {
         font-size: 14px;
         border-bottom: 1px solid $border-color;
@@ -781,11 +852,24 @@ footer {
         height: 70px;
         margin-right: 40px;
 
+        @include mq(tab) {
+          margin-right: 20px;
+        }
+
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           border-radius: 100px;
+        }
+      }
+
+      &-content {
+
+        word-break: break-all;
+
+        @include mq(tab) {
+          width: 100%;
         }
       }
     }
@@ -801,6 +885,10 @@ footer {
         height: 100px;
         border: 1px solid $border-color;
         border-radius: 5px;
+
+        @include mq(tab) {
+          width: 100%;
+        }
       }
 
       .action {
@@ -861,6 +949,48 @@ footer {
     font-size: 14px;
   }
 
+  .image-input-btn {
+    display: block;
+    background-color: $main-color-light;
+    width: 180px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding-top: 2px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      color: $main-color-light;
+      border: 1px solid $main-color-light;
+      background-color: #fff;
+
+    }
+  }
+
+  .image-input-file {
+    display: none;
+  }
+
+
+  .user-image-file {
+    display: none;
+  }
+
+  .user-image-inner {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-top: 6px;
+      margin-left: 10px;
+    }
+  }
+
+
   #user_remember_me {
     height: 20px;
     text-align: left;
@@ -888,6 +1018,20 @@ footer {
       color: #fff;
       font-size: 18px;
       font-weight: bold;
+      transition: 0.4s;
+
+      &:hover {
+        color: $main-color-light;
+        border: 1px solid $main-color-light;
+        background-color: #fff;
+
+      }
+    }
+  }
+
+  .user-account-text {
+    a {
+      border-bottom: 1px solid $border-color;
     }
   }
 }
@@ -1031,6 +1175,15 @@ footer {
       padding: 30px;
       margin-bottom: 30px;
 
+      @media screen and (min-width:768px) and (max-width:1020px) {
+        width: calc(50% - 20px * 1 / 2);
+      }
+
+      @media screen and (min-width:521px) and (max-width:767px) {
+        width: 100%;
+      }
+
+
       &-inner {
         word-break: break-all;
       }
@@ -1124,10 +1277,12 @@ footer {
   }
 
   .container {
-    max-width: 1200px;
+    width: 94%;
     margin: 0 auto;
     background-color: #fff;
     padding: 0 50px 50px;
+
+    @include mq(tab) {}
 
     .section-title {
       text-align: center;
@@ -1182,25 +1337,46 @@ footer {
   background-color: $main-color;
   padding: 130px 40px;
 
+  @include mq(tab) {
+    padding: 130px 20px;
+  }
+
   .terms-container {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #fff;
     padding: 100px;
 
+    @include mq(tab) {
+      padding: 50px 30px;
+    }
+
     h4 {
       font-size: 32px;
+
       margin-bottom: 27px;
+
+      @include mq(tab) {
+        font-size: 26px;
+      }
     }
 
     h5 {
       font-size: 20px;
       margin-bottom: 18px;
+
+      @include mq(tab) {
+        font-size: 16px;
+      }
     }
 
     p {
       font-size: 16px;
       margin-bottom: 27px;
+
+      @include mq(tab) {
+        font-size: 12px;
+      }
     }
   }
 

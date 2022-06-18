@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header-left">
-    <%= link_to image_tag("logo.png"), billisearch_home_path %>
+    <%= link_to image_tag("logo.png"), billisearch_home_path, class:"header-logo" %>
     <%= search_form_for @q, url: billisearch_halls_path do |f| %>
     <%= f.search_field :name_or_address_cont, placeholder: "検索" %>
     <%= f.submit '検索', class:"action" %>
@@ -22,15 +22,16 @@
         <%= current_user.name %>
       </li><!-- /.header-item -->
       <li class="header-item">
+
         <ul class="header-drop">
-          <div class="header-drop-menu header-user-icon">
+          <div class="header-drop-menu header-user-icon ">
             <% if current_user.image? %>
             <img src=<%= current_user.image %>>
             <% else %>
             <img src="/assets/profile-image.png" %>
             <% end %>
           </div><!-- /.header-drop-list -->
-          <ul class="header-drop-list">
+          <ul class="header-drop-list off">
             <li class="header-drop-item logout">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li><!-- /.header-drop-item -->
@@ -43,6 +44,7 @@
 
           </ul><!-- /.header-drop-list -->
         </ul><!-- /.header-drop -->
+
       </li><!-- /.header-item -->
       <!-- ログアウトをする -->
       <% else %>
@@ -64,11 +66,18 @@
 </header><!-- /.header -->
 
 <script type="text/javascript">
-  $(function () {
-    //ボタンのイベント
-    $(".header-user-icon").click(function () {
-      // sampleAクラスをスライドアップ/ダウンさせる
-      $(".header-drop-list").slideToggle();
-    });
+  //クリックで表示
+  $('.header-user-icon').on('click', function () {
+    if ($('.header-drop-list').hasClass('off')) {
+      $('.header-drop-list').removeClass('off');
+      $('.header-drop-list').animate({
+        'right': '0'
+      }, 500).addClass('on');
+    } else {
+      $('.header-drop-list').addClass('off');
+      $('.header-drop-list').animate({
+        'right': '-200px'
+      }, 500);
+    }
   });
 </script>
