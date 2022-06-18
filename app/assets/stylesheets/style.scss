@@ -1,4 +1,23 @@
 @charset "UTF-8";
+/*================================
+レスポンシブ
+=================================*/
+$breakpoints: ('tab': 'screen and (max-width: 960px)',
+  'sp': 'screen and (max-width: 520px)'
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq($breakpoint: tab) {
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
 
 /*================================
 カラー変数
@@ -10,6 +29,9 @@ $border-color: #DFDFDE;
 $secondary-color: #C1CBD9;
 $link-color : #0066c0;
 $font-color : #333;
+
+
+
 
 /*================================
 フォント関係
@@ -155,6 +177,35 @@ a:hover {
       opacity: 0.6;
     }
   }
+}
+
+#error_explanation {
+  margin-bottom: 30px;
+  border: 1px solid $sub-color;
+  border-radius: 5px;
+
+  h2 {
+    background-color: $sub-color;
+    color: #fff;
+    padding: 10px;
+
+
+  }
+
+  li {
+    padding: 10px;
+    list-style: circle;
+    list-style-position: inside;
+  }
+}
+
+.alert-danger {
+  color: $sub-color;
+  padding: 10px 0 10px;
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 5px;
+
 }
 
 /*================================
