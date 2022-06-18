@@ -8,6 +8,7 @@
           <h3>Hall details</h3>
         </div><!-- /.section-title -->
         <div class="hall-show-img">
+
           <%= image_tag @hall.image %>
         </div><!-- /.halls-img -->
         <table>
@@ -72,14 +73,16 @@
               <div class="hall-review-item-content">
                 <p class="hall-review-item-name"><%= review.user.name %></p>
                 <p class="hall-review-item-content"><%= review.content %></p>
-
               </div><!-- /.hall-review-item-content -->
-
+              <% end %>
+              <% if @reviews.empty? %>
+              <p>口コミはありません</p>
               <% end %>
             </li>
 
-            <%= form_with model: @review, url: reviews_path do |f| %>
+            <%= form_with model: @review, url: reviews_path, local: true do |f| %>
             <%= f.hidden_field :hall_id, value: @hall.id %>
+            <%= render 'shared/error_messages', object: f.object %>
             <li><%= f.label :content ,"口コミ内容" %></li>
 
             <li><%= f.text_area :content %></li>

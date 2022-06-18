@@ -1,13 +1,21 @@
 class ReviewsController < ApplicationController
   def new
+  
   end
 
   def create
+  
     @review = Review.new(params.require(:review).permit(:content, :hall_id).merge(user_id: current_user.id)) 
-    if @review.save!
-      redirect_back(fallback_location: billisearch_halls_path)
+    
+    if @review.save
+      @hall = Hall.find(params[:review][:hall_id])
+      @reviews = @hall.reviews
+      render "billisearch/halls/show"
     else
-      redirect_back(fallback_location: billisearch_halls_path)
+
+      @hall = Hall.find(params[:review][:hall_id])
+      @reviews = @hall.reviews
+      render "billisearch/halls/show"
     end
   end
 end
