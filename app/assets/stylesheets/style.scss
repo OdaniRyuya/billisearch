@@ -221,14 +221,23 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0px 30px;
+  z-index: 10000000;
 
   @include mq(tab) {
-    padding: 0;
+    padding: 0 4px; 
+  }
+
+  @include mq(sp) {
+    padding: 0 4px;
   }
 
   &-logo {
     img {
       width: 200px;
+
+      @include mq(sp) {
+        width: 160px;
+      }
     }
   }
 
@@ -244,7 +253,9 @@ a:hover {
     }
 
     .action {
-      @include mq(tab) {}
+      @include mq(sp) {
+        margin-left: 1px;
+      }
     }
   }
 
@@ -255,6 +266,10 @@ a:hover {
 
   &-item {
     margin-left: 20px;
+
+    @include mq(sp) {
+      margin-left: 5px;
+    }
   }
 
   &-guest,
@@ -273,6 +288,13 @@ a:hover {
         padding: 10px 5px;
         font-size: 12px;
       }
+
+      @include mq(sp) {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 13px 5px;
+      }
+
     }
 
     button {
@@ -283,6 +305,13 @@ a:hover {
         padding: 10px 5px;
         font-size: 12px;
       }
+
+      @include mq(sp) {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 13px 5px;
+      }
+
     }
   }
 
@@ -423,6 +452,11 @@ footer {
   &-container {
     margin: 0 50px;
     padding-top: 200px;
+
+    @include mq(sp) {
+      padding-top: 130px;
+      margin: 0 20px;
+    }
   }
 
   h2 {
@@ -432,6 +466,11 @@ footer {
     font-family: 'Anton',
       sans-serif;
     letter-spacing: 2px;
+
+    @include mq(sp) {
+      text-align: center;
+      font-size: 66px;
+    }
   }
 
   p {
@@ -439,10 +478,18 @@ footer {
     line-height: 1.7;
     padding-bottom: 10px;
     font-size: 14px;
+
+    @include mq(sp) {
+      font-size: 13px;
+    }
   }
 
   .hall_search {
     margin-top: 30px;
+
+    @include mq(sp) {
+      margin-top: 60px;
+    }
   }
 
   button {
@@ -465,7 +512,6 @@ footer {
   @include mq(tab) {
     padding: 12px 15px;
   }
-
 
   &-container {
     max-width: 1300px;
@@ -517,6 +563,10 @@ footer {
         }
       }
 
+      .sort_link {
+        font-size: 12px;
+      }
+
       .current {
         a {
           color: $main-color-light;
@@ -531,6 +581,10 @@ footer {
     strong {
       font-weight: bold;
     }
+
+    @include mq(sp) {
+      font-size: 12px;
+    }
   }
 
   &-inner {
@@ -538,6 +592,7 @@ footer {
     padding-bottom: 30px;
     border-radius: 5px;
   }
+
 
   &-list {
     margin-top: 10px;
@@ -572,6 +627,10 @@ footer {
     }
 
     @media screen and (min-width:521px) and (max-width:767px) {
+      width: 100%;
+    }
+
+    @include mq(sp) {
       width: 100%;
     }
 
@@ -1046,6 +1105,12 @@ footer {
   padding-right: 40px;
   padding-bottom: 40px;
 
+  @include mq(sp) {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 100px;
+  }
+
   .section-title {
     text-align: center;
 
@@ -1074,6 +1139,10 @@ footer {
     margin: 0 auto;
     background-color: #fff;
     padding: 0 50px 50px;
+
+    @include mq(sp) {
+      padding: 0 20px 20px;
+    }
   }
 
   &-profile {
@@ -1165,6 +1234,10 @@ footer {
         width: calc(33.3% - 30px * 2 / 3);
         display: block;
       }
+
+      @include mq(sp) {
+        padding: 13px;
+      }
     }
 
     &-item {
@@ -1180,6 +1253,10 @@ footer {
       }
 
       @media screen and (min-width:521px) and (max-width:767px) {
+        width: 100%;
+      }
+
+      @include mq(sp) {
         width: 100%;
       }
 
