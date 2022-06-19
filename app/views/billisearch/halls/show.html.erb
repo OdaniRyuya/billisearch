@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
-
   <body>
     <section class="hall-show">
       <div class="hall-show-container">
         <div class="section-title">
           <h3>Hall details</h3>
-        </div><!-- /.section-title -->
+        </div>
+        <!-- /.section-title -->
         <div class="hall-show-img">
-
           <%= image_tag @hall.image %>
-        </div><!-- /.halls-img -->
+        </div>
+        <!-- /.halls-img -->
         <table>
           <tbody>
             <tr>
@@ -66,35 +66,40 @@
         <div class="hall-review">
           <ul class="hall-review-list">
             <% @reviews.each do |review| %>
-            <li class="hall-review-item">
-              <div class="hall-review-item-img">
-                <img src="/assets/playplan.jpg">
-              </div><!-- /.hall-review-item-img -->
-              <div class="hall-review-item-inner">
-                <p class="hall-review-item-name"><%= review.user.name %></p>
-                <p class="hall-review-item-content"><%= review.content %></p>
-              </div><!-- /.hall-review-item-content -->
+              <li class="hall-review-item">
+                <div class="hall-review-item-img">
+                  <img src="/assets/playplan.jpg">
+                </div>
+                <!-- /.hall-review-item-img -->
+                <div class="hall-review-item-inner">
+                  <p class="hall-review-item-name"><%= review.user.name %></p>
+                  <p class="hall-review-item-content"><%= review.content %></p>
+                </div>
+                <!-- /.hall-review-item-content -->
+                <% if user_signed_in? %>
+                  <% if current_user.email == 'o_ryuya@icloud.com' %>
+                    <%= button_to "削除", review_path(review: review), method: :delete %>
+                  <% end %>
+                <% end %>
               <% end %>
               <% if @reviews.empty? %>
-              <p>口コミはありません</p>
+                <p>口コミはありません</p>
               <% end %>
             </li>
-
             <%= form_with model: @review, url: reviews_path, local: true do |f| %>
-            <%= f.hidden_field :hall_id, value: @hall.id %>
-            <%= render 'shared/error_messages', object: f.object %>
-            <li><%= f.label :content ,"口コミ内容" %></li>
-
-            <li><%= f.text_area :content %></li>
-            <li><%= f.submit "レビューを投稿する", class:"action" %></li>
+              <%= f.hidden_field :hall_id, value: @hall.id %>
+              <%= render 'shared/error_messages', object: f.object %>
+              <li><%= f.label :content ,"口コミ内容" %></li>
+              <li><%= f.text_area :content %></li>
+              <li><%= f.submit "レビューを投稿する", class:"action" %></li>
             <% end %>
-
-
-          </ul><!-- /.hall-review-list -->
-        </div><!-- /.hall-review -->
-      </div><!-- /.halls-show-container -->
-    </section><!-- /.halls -->
-    <script src="./js/script.js"></script>
+          </ul>
+          <!-- /.hall-review-list -->
+        </div>
+        <!-- /.hall-review -->
+      </div>
+      <!-- /.halls-show-container -->
+    </section>
+    <!-- /.halls -->
   </body>
-
 </html>

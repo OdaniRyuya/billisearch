@@ -2,69 +2,76 @@
   <div class="header-left">
     <%= link_to image_tag("logo.png"), billisearch_home_path, class:"header-logo" %>
     <%= search_form_for @q, url: billisearch_halls_path do |f| %>
-    <%= f.search_field :name_or_address_cont, placeholder: "検索" %>
-    <%= f.submit '検索', class:"action" %>
+      <%= f.search_field :name_or_address_cont, placeholder: "検索" %>
+      <%= f.submit '検索', class:"action" %>
     <% end %>
-  </div><!-- /.header-logo -->
+  </div>
+  <!-- /.header-logo -->
   <div class="header-right">
     <ul class="header-list">
-
-
       <% if user_signed_in? %>
-      <% if current_user.email == 'o_ryuya@icloud.com' %>
-      <li class="header-item"><%= link_to "ビリヤード場登録", new_billisearch_hall_path %></li><!-- /.header-item -->
-      <% end %>
-
-
-      <!-- ユーザーがログインしているか調べる -->
-      <!-- ユーザーがログインしていた時の処理 -->
-      <li class="header-item">
-        <%= current_user.name %>
-      </li><!-- /.header-item -->
-      <li class="header-item">
-
-        <ul class="header-drop">
-          <div class="header-drop-menu header-user-icon ">
-            <% if current_user.image? %>
-            <img src=<%= current_user.image %>>
-            <% else %>
-            <img src="/assets/profile-image.png" %>
-            <% end %>
-          </div><!-- /.header-drop-list -->
-          <ul class="header-drop-list off">
-            <li class="header-drop-item logout">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </li><!-- /.header-drop-item -->
-            <li class="header-drop-item">
-              <%= link_to "マイページ", user_path(current_user) %>
-            </li><!-- /.header-drop-item -->
-            <li class="header-drop-item">
-              <%= link_to "ユーザー編集", edit_user_registration_path %>
-            </li><!-- /.header-drop-item -->
-
-          </ul><!-- /.header-drop-list -->
-        </ul><!-- /.header-drop -->
-
-      </li><!-- /.header-item -->
-      <!-- ログアウトをする -->
+        <% if current_user.email == 'o_ryuya@icloud.com' %>
+          <li class="header-item"><%= link_to "ビリヤード場登録", new_billisearch_hall_path %></li>
+          <!-- /.header-item -->
+        <% end %>
+        <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+        <li class="header-item">
+          <%= current_user.name %>
+        </li>
+        <!-- /.header-item -->
+        <li class="header-item">
+          <ul class="header-drop">
+            <div class="header-drop-menu header-user-icon ">
+              <% if current_user.image? %>
+                <img src=<%= current_user.image %>>
+              <% else %>
+                <img src="/assets/profile-image.png" %>
+              <% end %>
+            </div>
+            <!-- /.header-drop-list -->
+            <ul class="header-drop-list off">
+              <li class="header-drop-item logout">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+              <!-- /.header-drop-item -->
+              <li class="header-drop-item">
+                <%= link_to "マイページ", user_path(current_user) %>
+              </li>
+              <!-- /.header-drop-item -->
+              <li class="header-drop-item">
+                <%= link_to "ユーザー編集", edit_user_registration_path %>
+              </li>
+              <!-- /.header-drop-item -->
+            </ul>
+            <!-- /.header-drop-list -->
+          </ul>
+          <!-- /.header-drop -->
+        </li>
+        <!-- /.header-item -->
+        <!-- ログアウトをする -->
       <% else %>
-      <!-- ユーザーがログインしていなかった時の処理 -->
-      <li class="header-item header-guest">
-        <%= button_to 'ゲストログイン', billisearch_new_guest_path, method: :post %>
-      </li>
-      <li class="header-item header-login">
-        <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-      </li><!-- /.header-item -->
-      <!-- ログイン画面に移行する -->
-      <li class="header-item header-add-account">
-        <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-      </li><!-- /.header-item -->
-      <!-- 新規登録画面に移行する -->
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <li class="header-item header-guest">
+          <%= button_to 'ゲストログイン', billisearch_new_guest_path, method: :post %>
+        </li>
+        <li class="header-item header-login">
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        </li>
+        <!-- /.header-item -->
+        <!-- ログイン画面に移行する -->
+        <li class="header-item header-add-account">
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        </li>
+        <!-- /.header-item -->
+        <!-- 新規登録画面に移行する -->
       <% end %>
-    </ul><!-- /.header-list -->
-  </div><!-- /.header-right -->
-</header><!-- /.header -->
-
+    </ul>
+    <!-- /.header-list -->
+  </div>
+  <!-- /.header-right -->
+</header>
+<!-- /.header -->
 <script type="text/javascript">
   //クリックで表示
   $('.header-user-icon').on('click', function () {

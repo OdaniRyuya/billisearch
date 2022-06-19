@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*================================
 レスポンシブ
 =================================*/
@@ -29,11 +30,8 @@ $secondary-color: #C1CBD9;
 $link-color : #0066c0;
 $font-color : #333;
 
-
-
-
 /*================================
-フォント関係
+セクションタイトル
 =================================*/
 @mixin section-title {
   position: relative;
@@ -57,14 +55,13 @@ $font-color : #333;
   }
 }
 
-
 /*================================
 ヘッダー固定でずれた高さ(ヘッダーのheightの値)
 =================================*/
 $header-height: 70px;
 
 /*================================
-テーブルの共通変数
+テーブル
 =================================*/
 @mixin table() {
   table {
@@ -82,7 +79,6 @@ $header-height: 70px;
     font-size: 16px;
     border: 1px solid $border-color;
   }
-
 
   td {
     border: 1px solid $border-color;
@@ -115,10 +111,7 @@ $header-height: 70px;
       text-overflow: ellipsis;
     }
   }
-
 }
-
-
 
 /*================================
 共通のCSS
@@ -172,9 +165,12 @@ a:hover {
     margin-left: 10px;
     background-color: $main-color-light;
     color: #fff;
+    border: solid 1px $main-color-light;
 
     &:hover {
-      opacity: 0.6;
+      background-color: #fff;
+      border: solid 1px $main-color-light;
+      color: $main-color-light;
     }
   }
 }
@@ -188,8 +184,6 @@ a:hover {
     background-color: $sub-color;
     color: #fff;
     padding: 10px;
-
-
   }
 
   li {
@@ -205,7 +199,6 @@ a:hover {
   font-size: 16px;
   display: inline-block;
   border-radius: 5px;
-
 }
 
 /*================================
@@ -224,7 +217,7 @@ a:hover {
   z-index: 10000000;
 
   @include mq(tab) {
-    padding: 0 4px; 
+    padding: 0 4px;
   }
 
   @include mq(sp) {
@@ -240,7 +233,6 @@ a:hover {
       }
     }
   }
-
 
   &-left {
     display: flex;
@@ -294,7 +286,6 @@ a:hover {
         font-weight: bold;
         padding: 13px 5px;
       }
-
     }
 
     button {
@@ -311,7 +302,6 @@ a:hover {
         font-weight: bold;
         padding: 13px 5px;
       }
-
     }
   }
 
@@ -325,22 +315,21 @@ a:hover {
 
   &-login {
     background-color: $main-color-light;
+    border: 1px solid $main-color-light;
 
     &:hover {
       background-color: #fff;
       border: 1px solid $main-color-light;
 
-
-
       a {
         color: $main-color-light;
-
       }
     }
   }
 
   &-add-account {
     background-color: $sub-color;
+    border: 1px solid $sub-color;
 
     &:hover {
       background-color: #fff;
@@ -363,7 +352,6 @@ a:hover {
       height: 100%;
       object-fit: cover;
       border-radius: 50px;
-
     }
   }
 
@@ -382,7 +370,6 @@ a:hover {
     line-height: normal;
     margin-top: 10px;
 
-
     a {
       color: #fff;
       text-decoration: none;
@@ -392,7 +379,6 @@ a:hover {
       border-bottom: 1px solid #fff;
       opacity: 0.8;
       font-size: 14px;
-
 
       &::after {
         /*アンダーラインのスタイル*/
@@ -416,7 +402,6 @@ a:hover {
       }
     }
   }
-
 }
 
 /*================================
@@ -431,11 +416,8 @@ footer {
   a {
     color: #fff;
     margin-right: 10px;
-
   }
 }
-
-
 
 /*================================
 トップページ
@@ -526,8 +508,6 @@ footer {
     }
   }
 
-
-
   &-sort {
     display: flex;
     justify-content: space-between;
@@ -559,7 +539,6 @@ footer {
         &:hover::after {
           /*幅を100%に設定*/
           width: 100%;
-
         }
       }
 
@@ -571,7 +550,6 @@ footer {
         a {
           color: $main-color-light;
           border-bottom: 1px solid $main-color;
-
         }
       }
     }
@@ -593,7 +571,6 @@ footer {
     border-radius: 5px;
   }
 
-
   &-list {
     margin-top: 10px;
     padding: 30px;
@@ -606,7 +583,6 @@ footer {
     @include mq(tab) {
       padding: 12px;
     }
-
 
     &::after {
       content: "";
@@ -634,7 +610,6 @@ footer {
       width: 100%;
     }
 
-
     &-inner {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -642,7 +617,6 @@ footer {
 
       a {
         display: inline-block;
-
       }
 
       &>* {
@@ -652,7 +626,6 @@ footer {
 
         &:empty {
           display: none;
-
         }
       }
     }
@@ -669,14 +642,11 @@ footer {
 
     .favorite-check {
       color: #DA1212;
-
     }
 
     .favorite-no-check {
       color: gray;
-
     }
-
 
     &-favorite-icon,
     &-review-icon {
@@ -853,12 +823,9 @@ footer {
     h3 {
       @include section-title;
     }
-
   }
 
   @include table;
-
-
 
   th {
     border: 1px solid $border-color;
@@ -924,7 +891,6 @@ footer {
       }
 
       &-content {
-
         word-break: break-all;
 
         @include mq(tab) {
@@ -970,6 +936,18 @@ footer {
 =================================*/
 .new-hall {
   padding-top: $header-height;
+  width: 100%;
+
+  table {
+    width: 500px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #000;
+  }
 }
 
 /*================================
@@ -1026,14 +1004,12 @@ footer {
       color: $main-color-light;
       border: 1px solid $main-color-light;
       background-color: #fff;
-
     }
   }
 
   .image-input-file {
     display: none;
   }
-
 
   .user-image-file {
     display: none;
@@ -1048,7 +1024,6 @@ footer {
       margin-left: 10px;
     }
   }
-
 
   #user_remember_me {
     height: 20px;
@@ -1083,7 +1058,6 @@ footer {
         color: $main-color-light;
         border: 1px solid $main-color-light;
         background-color: #fff;
-
       }
     }
   }
@@ -1118,7 +1092,6 @@ footer {
       @include section-title;
       color: $font-color;
     }
-
   }
 
   &-img {
@@ -1260,7 +1233,6 @@ footer {
         width: 100%;
       }
 
-
       &-inner {
         word-break: break-all;
       }
@@ -1297,7 +1269,6 @@ footer {
       p {
         padding-bottom: 20px;
       }
-
     }
 
     &-img {
@@ -1313,7 +1284,6 @@ footer {
     }
   }
 }
-
 
 /*================================
 ユーザー編集
@@ -1350,7 +1320,6 @@ footer {
   .link-below-user-form {
     max-width: 800px;
     margin: 0 auto;
-
   }
 
   .container {
@@ -1383,14 +1352,17 @@ footer {
     }
 
     .btn-primary {
-      background-color: $main-color;
+      background-color: $main-color-light;
       color: #fff;
       font-weight: bold;
       padding: 15px 0;
       border-radius: 10px;
+      transition: 0.4s;
 
       &:hover {
-        opacity: 0.7;
+        color: $main-color-light;
+        background-color: #fff;
+        border: 1px solid $main-color-light;
       }
     }
 
@@ -1403,6 +1375,13 @@ footer {
       text-align: center;
       margin-top: 20px;
       border-radius: 10px;
+      border: 1px solid $sub-color;
+
+      &:hover {
+        color: $sub-color;
+        background-color: #fff;
+        border: 1px solid $sub-color;
+      }
     }
   }
 }
@@ -1430,7 +1409,6 @@ footer {
 
     h4 {
       font-size: 32px;
-
       margin-bottom: 27px;
 
       @include mq(tab) {

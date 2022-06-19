@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
 
   PAGINATION_MAX_HALLS_COUNT = 6
 
-
-
   def set_search
     @q = Hall.ransack(params[:q])
     @q.sorts = ['name desc', 'id desc'] if @q.sorts.empty?
@@ -14,8 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:email, :image, :name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :image, :name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :name, :image])
   end
 end

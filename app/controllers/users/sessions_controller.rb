@@ -26,9 +26,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
   def after_sign_in_path_for(resource)
     billisearch_home_path
-  end 
+  end
 
   def after_sign_out_path_for(resource)
     billisearch_home_path
-  end 
+  end
 end
