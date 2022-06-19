@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     if @review.save
       @hall = Hall.find(params[:review][:hall_id])
       @reviews = @hall.reviews
-      redirect_to billisearch_hall_path(params[:review][:hall_id
+      redirect_to billisearch_hall_path(params[:review][:hall_id])
 
       
     else
