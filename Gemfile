@@ -78,4 +78,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rubocop-airbnb'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
