@@ -91,7 +91,10 @@
               <%= render 'shared/error_messages', object: f.object %>
               <li><%= f.label :content ,"口コミ内容" %></li>
               <li><%= f.text_area :content %></li>
-              <li><%= f.submit "レビューを投稿する", class:"action" %></li>
+                <li class="<%= "sign_in_action" if user_signed_in? == false %>"><%= f.submit "レビューを投稿する", class:"action" %>
+                <% if user_signed_in? == false %>
+                  <span>ログイン時のみ投稿できます</span></li>
+                <% end %>
             <% end %>
           </ul>
           <!-- /.hall-review-list -->

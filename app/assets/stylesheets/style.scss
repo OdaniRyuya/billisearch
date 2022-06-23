@@ -916,6 +916,10 @@ footer {
         }
       }
 
+      .sign_in_action {
+        pointer-events: none;
+      }
+
       .action {
         border: 1px solid $border-color;
         padding: 10px 20px;
@@ -925,6 +929,12 @@ footer {
           background-color: $main-color-light;
           color: #fff;
         }
+      }
+
+      span {
+        color: $sub-color;
+        font-weight: bold;
+        font-size: 16px;
       }
 
     }
