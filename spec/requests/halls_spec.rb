@@ -6,12 +6,14 @@ RSpec.describe "Halls", type: :request do
     @params = Hash.new
     @params[:q] = Hash.new
     @params[:q][:name_or_address_cont] = 'あああ'
-    @hall = create(:hall, :hall_image)
-    @user = create(:user)
-    @reviews = nil
   end
 
   describe "ビリヤード場一覧" do
+
+    let(:hall) {create(:hall, :hall_image)}
+    let(:user) {create(:user)}
+    let(:reviews) { nil }
+
     before do
       get billisearch_halls_path(@params)
     end
@@ -22,6 +24,11 @@ RSpec.describe "Halls", type: :request do
   end
 
   describe "ビリヤード場詳細" do
+
+    let!(:hall) {create(:hall, :hall_image)}
+    let!(:user) {create(:user)}
+    let!(:reviews) { nil }
+
     before do
       get billisearch_hall_path(1)
     end
@@ -31,9 +38,9 @@ RSpec.describe "Halls", type: :request do
     end
 
     it "ビリヤード場の情報が表示されていること" do
-      expect(response.body).to include @hall.name, @hall.address, @hall.address, @hall.tel,
-                                        @hall.email, @hall.price, @hall.time, @hall.parking,
-                                        @hall.billiards, @hall.url, @hall.pr, @hall.open, @hall.lead,
+      expect(response.body).to include hall.name, hall.address, hall.address, hall.tel,
+                                        hall.email, hall.price, hall.time, hall.parking,
+                                        hall.billiards, hall.url, hall.pr, hall.open, hall.lead,
                                         "test.jpg"
     end
 
@@ -45,7 +52,7 @@ RSpec.describe "Halls", type: :request do
 
     context "口コミが投稿されている場合" do
       it "投稿された口コミが表示されていること" do
-        @reviews = @hall.reviews << create(:review, hall: @hall)
+        reviews = hall.reviews << create(:review, hall: hall)
         get billisearch_hall_path(1)
         expect(response.body).to include "いい店でした。"
       end

@@ -7,6 +7,7 @@ RSpec.describe "Home", type: :request do
   end
 
   describe "ホーム画面" do
+
     it "正常にレスポンスを返すこと" do
       expect(response).to have_http_status(200)
     end    

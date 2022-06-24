@@ -4,9 +4,10 @@ RSpec.describe Review, type: :model do
 
   describe Review do
 
+    let (:review) {create(:review)}
+
     it "口コミ内容を入力した時、正常にcreateメソッドが完了すること" do
-      @review = create(:review)
-      expect(@review).to be_valid
+      expect(review).to be_valid
     end
   end
 end

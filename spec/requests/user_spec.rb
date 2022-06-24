@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "Mypage", type: :request do
 
-  before do
-    @user = create(:user, :user_image)
-    sign_in @user
-  end
-
   describe "マイページ" do
 
+    let(:user) {create(:user, :user_image)}
+
     before do
+      sign_in user
       get user_path(1)
     end
+
     it "正常にレスポンスを返すこと" do
       expect(response).to have_http_status(200)
     end    
@@ -23,7 +22,10 @@ RSpec.describe "Mypage", type: :request do
 
   describe "アカウント情報編集ページ" do
 
+    let(:user) {create(:user, :user_image)}
+
     before do 
+      sign_in user
       get edit_user_registration_path
     end
 

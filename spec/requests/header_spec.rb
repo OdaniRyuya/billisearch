@@ -2,14 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "header", type: :request do
 
-  before do
-    @user = create(:user, :user_image)
-    sign_in @user
-  end
-
   describe "ヘッダー" do
 
+    let(:user) {create(:user, :user_image)}
+
     before do
+      sign_in user
       get billisearch_home_path 
     end
 
@@ -26,7 +24,7 @@ RSpec.describe "header", type: :request do
 
     context "ログインしていない時"do
       it "ゲストログイン、ログイン、新規登録ボタンが表示されていること" do
-        sign_out @user
+        sign_out user
         get billisearch_home_path 
         expect(response.body).to include "header-guest", "header-login", "header-add-account"
       end  

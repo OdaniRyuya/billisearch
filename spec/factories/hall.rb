@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :hall do
-    name      { "テスト場テスト店" }
+    sequence(:name) { |n| "テスト場テスト店#{n}" }
     address   { "〇〇県〇〇市〇〇-〇〇番" }
     tel       { "000-0000-0000" }
     email     { "test@example.com" }
