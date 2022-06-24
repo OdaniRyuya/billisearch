@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Hall, type: :model do
 
-  describe Hall do
+  describe "Hall" do
 
     let (:hall) {create(:hall)}
 
