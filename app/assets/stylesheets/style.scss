@@ -747,9 +747,11 @@ footer {
 
   &-pagination {
     margin: 50px auto;
-    width: 300px;
+    width: 600px;
 
     .pagination {
+      text-align: center;
+
       span {
         a {
           background-color: #fff;
@@ -1169,7 +1171,7 @@ footer {
 
   &-halls {
     &-pagination {
-      width: 300px;
+      width: 600px;
       margin: 0 auto;
 
       .pagination {
