@@ -25,6 +25,7 @@ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f 
 
 RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include FactoryBot::Syntax::Methods
   config.after(:all) do
     FileUtils.rm_rf(ActiveStorage::Blob.service.root) if Rails.env.test?

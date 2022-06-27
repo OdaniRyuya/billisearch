@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :hall do
-    sequence(:name)    { |n| "テスト場テスト店#{n}" }
-    sequence(:address) { |a| "〇〇県〇〇市〇〇-〇〇番#{a}" }
+    sequence(:name)    { |n| "テスト店#{n}" }
+    sequence(:address) { |a| "◯◯県◯◯市◯◯-◯◯番#{a}" }
     tel                { "000-0000-0000" }
     email              { "test@example.com" }
     parking            { "20台" }
@@ -11,9 +11,11 @@ FactoryBot.define do
     open               { "営業中" }
     url                { "http//test.com" }
     pr                 { "よかったら来てください" }
-    lead               { "併用施設:ダーツ４台" }
+    lead               { "併用施設:ダーツ4台" }
   end
+
   trait :hall_image do
     image { Rack::Test::UploadedFile.new("spec/fixtures/test.jpg") }
   end
+
 end
