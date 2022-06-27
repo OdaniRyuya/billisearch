@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Hall.ransack(params[:q])
-    @q.sorts = ['name desc', 'id desc'] if @q.sorts.empty?
+    @q.sorts = ['updated_at desc', 'id desc'] if @q.sorts.empty?
     @search_halls = @q.result
     @search_halls_count = @search_halls
   end

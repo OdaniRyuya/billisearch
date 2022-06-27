@@ -10,8 +10,8 @@
         <div class="halls-sort wow fadeInUp">
           <ul>
             <li
-              class="<%= "current" if params[:q][:s] == "name asc" || params[:q][:s] == "name desc" || params[:q][:s].nil? %>">
-              <th><%= sort_link(@q, :name, "新着順",{ default_order: :desc }) %></th>
+              class="<%= "current" if params[:q][:s] == "updated_at asc" || params[:q][:s] == "updated_at desc" || params[:q][:s].nil? %>">
+              <th><%= sort_link(@q, :updated_at, "新着順",{ default_order: :desc }) %></th>
             </li>
             <li
               class="<%= "current" if params[:q][:s] == "favorites_count asc" || params[:q][:s] == "favorites_count desc" %>">
