@@ -1,0 +1,1469 @@
+@charset "UTF-8";
+
+/*================================
+レスポンシブ
+=================================*/
+$breakpoints: ('tab': 'screen and (max-width: 960px)',
+  'sp': 'screen and (max-width: 520px)'
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq($breakpoint: tab) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/*================================
+カラー変数
+=================================*/
+$main-color: #AEDBCE;
+$main-color-light: #0CA877;
+$sub-color: #D6224A;
+$border-color: #DFDFDE;
+$secondary-color: #C1CBD9;
+$link-color : #0066c0;
+$font-color : #333;
+
+/*================================
+セクションタイトル
+=================================*/
+@mixin section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  padding: 50px 0;
+  color: $main-color-light;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    display: inline-block;
+    width: 60px;
+    height: 5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: $main-color-light;
+    border-radius: 2px;
+  }
+}
+
+/*================================
+ヘッダー固定でずれた高さ(ヘッダーのheightの値)
+=================================*/
+$header-height: 70px;
+
+/*================================
+テーブル
+=================================*/
+@mixin table() {
+  table {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding-bottom: 60px;
+  }
+
+  thead {
+    background-color: $main-color;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid $border-color;
+  }
+
+  td {
+    border: 1px solid $border-color;
+    padding: 0 10px;
+  }
+
+  .name {
+    width: 200px;
+  }
+
+  .address {
+    width: 200px;
+  }
+
+  .delete {
+    width: 30px;
+  }
+
+  tr {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+@mixin table-wrap {
+  table {
+    td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+/*================================
+共通のCSS
+=================================*/
+
+body {
+  width: 100%;
+  position: relative;
+  color: $font-color;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
+li {
+  list-style: none
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+}
+
+a,
+input {
+  transition: 0.4s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.hall_search {
+  display: flex;
+  line-height: 20px;
+  height: 20px;
+  align-items: center;
+
+  input {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+  }
+
+  .action {
+    margin-left: 10px;
+    background-color: $main-color-light;
+    color: #fff;
+    border: solid 1px $main-color-light;
+
+    &:hover {
+      background-color: #fff;
+      border: solid 1px $main-color-light;
+      color: $main-color-light;
+    }
+  }
+}
+
+#error_explanation {
+  margin-bottom: 30px;
+  border: 1px solid $sub-color;
+  border-radius: 5px;
+
+  h2 {
+    background-color: $sub-color;
+    color: #fff;
+    padding: 10px;
+  }
+
+  li {
+    padding: 10px;
+    list-style: circle;
+    list-style-position: inside;
+  }
+}
+
+.alert-danger {
+  color: $sub-color;
+  padding: 10px 0 10px;
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/*================================
+ヘッダー
+=================================*/
+
+.header {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  z-index: 10000000;
+
+  @include mq(tab) {
+    padding: 0 4px;
+  }
+
+  @include mq(sp) {
+    padding: 0 4px;
+  }
+
+  &-logo {
+    img {
+      width: 200px;
+
+      @include mq(sp) {
+        width: 160px;
+      }
+    }
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+
+    #q_name_or_address_cont {
+      @include mq(tab) {
+        display: none;
+      }
+    }
+
+    .action {
+      @include mq(sp) {
+        margin-left: 1px;
+      }
+    }
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+  }
+
+  &-item {
+    margin-left: 20px;
+
+    @include mq(sp) {
+      margin-left: 5px;
+    }
+  }
+
+  &-guest,
+  &-login,
+  &-add-account {
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.4s;
+
+    a {
+      display: inline-block;
+      color: #fff;
+      padding: 10px 20px;
+
+      @include mq(tab) {
+        padding: 10px 5px;
+        font-size: 12px;
+      }
+
+      @include mq(sp) {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 13px 5px;
+      }
+    }
+
+    button {
+      padding: 10px 20px;
+      display: inline-block;
+
+      @include mq(tab) {
+        padding: 10px 5px;
+        font-size: 12px;
+      }
+
+      @include mq(sp) {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 13px 5px;
+      }
+    }
+  }
+
+  &-guest {
+    background-color: $secondary-color;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &-login {
+    background-color: $main-color-light;
+    border: 1px solid $main-color-light;
+
+    &:hover {
+      background-color: #fff;
+      border: 1px solid $main-color-light;
+
+      a {
+        color: $main-color-light;
+      }
+    }
+  }
+
+  &-add-account {
+    background-color: $sub-color;
+    border: 1px solid $sub-color;
+
+    &:hover {
+      background-color: #fff;
+      border: 1px solid $sub-color;
+
+      a {
+        color: $sub-color;
+      }
+    }
+  }
+
+  &-user-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+  }
+
+  &-drop-list {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right: -200px;
+    top: 70px;
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-width: 0px 2px 2px 2px;
+    min-height: 100vh;
+  }
+
+  &-drop-item {
+    line-height: normal;
+    margin-top: 10px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      margin: 10px 30px;
+      display: inline-block;
+      border-bottom: 1px solid #fff;
+      opacity: 0.8;
+      font-size: 14px;
+
+      &::after {
+        /*アンダーラインのスタイル*/
+        position: absolute;
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: #fff;
+        bottom: -2px;
+        left: 0;
+        /*幅を0に設定*/
+        width: 0;
+        /*アニメーションの速度設定*/
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      &:hover::after {
+        /*幅を100%に設定*/
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*================================
+フッター
+=================================*/
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+
+  a {
+    color: #fff;
+    margin-right: 10px;
+  }
+}
+
+/*================================
+トップページ
+=================================*/
+.top {
+  padding-top: $header-height;
+  background: url('top-bg.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+
+  &-container {
+    margin: 0 50px;
+    padding-top: 200px;
+
+    @include mq(sp) {
+      padding-top: 130px;
+      margin: 0 20px;
+    }
+  }
+
+  h2 {
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-family: 'Anton',
+      sans-serif;
+    letter-spacing: 2px;
+
+    @include mq(sp) {
+      text-align: center;
+      font-size: 66px;
+    }
+  }
+
+  p {
+    max-width: 500px;
+    line-height: 1.7;
+    padding-bottom: 10px;
+    font-size: 14px;
+
+    @include mq(sp) {
+      font-size: 13px;
+    }
+  }
+
+  .hall_search {
+    margin-top: 30px;
+
+    @include mq(sp) {
+      margin-top: 60px;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+  }
+}
+
+/*================================
+ビリヤード場一覧
+=================================*/
+.halls {
+  padding-top: $header-height;
+  font-size: 14px;
+  background-color: $main-color;
+  padding: 40px;
+
+  @include mq(tab) {
+    padding: 12px 15px;
+  }
+
+  &-container {
+    max-width: 1300px;
+    margin: 70px auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px -10px;
+
+    @include mq(tab) {
+      padding: 20px 10px;
+    }
+  }
+
+  &-sort {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+
+      a {
+        margin-right: 10px;
+        display: inline-block;
+        position: relative;
+
+        &::after {
+          /*アンダーラインのスタイル*/
+          position: absolute;
+          content: "";
+          display: block;
+          height: 1px;
+          background-color: $main-color-light;
+          bottom: -2px;
+          left: 0;
+          /*幅を0に設定*/
+          width: 0;
+          /*アニメーションの速度設定*/
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+        }
+
+        &:hover::after {
+          /*幅を100%に設定*/
+          width: 100%;
+        }
+      }
+
+      .sort_link {
+        font-size: 12px;
+      }
+
+      .current {
+        a {
+          color: $main-color-light;
+          border-bottom: 1px solid $main-color;
+        }
+      }
+    }
+  }
+
+  &-count {
+    strong {
+      font-weight: bold;
+    }
+
+    @include mq(sp) {
+      font-size: 12px;
+    }
+  }
+
+  &-inner {
+    background-color: $main-color;
+    padding-bottom: 30px;
+    border-radius: 5px;
+  }
+
+  &-list {
+    margin-top: 10px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    @include mq(tab) {
+      padding: 12px;
+    }
+
+    &::after {
+      content: "";
+      width: calc(33.3% - 30px * 2 / 3);
+      display: block;
+    }
+  }
+
+  &-item {
+    width: calc(33.3% - 10px * 2 / 3);
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px -10px;
+
+    @media screen and (min-width:768px) and (max-width:1020px) {
+      width: calc(50% - 20px * 1 / 2);
+    }
+
+    @media screen and (min-width:521px) and (max-width:767px) {
+      width: 100%;
+    }
+
+    @include mq(sp) {
+      width: 100%;
+    }
+
+    &-inner {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 30px;
+
+      a {
+        display: inline-block;
+      }
+
+      &>* {
+        margin-bottom: 10px;
+        word-break: break-all;
+        font-size: 15px;
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+
+    &-img {
+      height: 200px;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .favorite-check {
+      color: #DA1212;
+    }
+
+    .favorite-no-check {
+      color: gray;
+    }
+
+    &-favorite-icon,
+    &-review-icon {
+      display: flex;
+      justify-content: left;
+
+      i {
+        width: 23px;
+        text-align: left;
+      }
+    }
+
+    &-name {
+      font-weight: bold;
+      font-size: 17px;
+
+      a {
+        color: $main-color-light;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+    }
+
+    &-url {
+      color: $link-color;
+    }
+
+    &-review {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid $border-color;
+      padding: 20px 0;
+      margin-bottom: -10px;
+
+      &:last-of-type {
+        border-bottom: 1px solid $border-color;
+      }
+
+      &-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          border-radius: 100px;
+        }
+      }
+
+      &-summary {
+        width: 84%;
+      }
+
+      .name {
+        display: inline-block;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .content {
+        font-size: 13px;
+      }
+    }
+
+    &-show {
+      display: inline-block;
+      width: 100%;
+      background-color: $main-color-light;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 17px;
+      border-radius: 5px;
+      margin-top: 20px;
+
+      &:hover {
+        background-color: #fff;
+        color: $main-color-light;
+        border: 1px solid $main-color-light;
+      }
+    }
+  }
+
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+    }
+  }
+
+  &-pagination {
+    margin: 50px auto;
+    width: 600px;
+
+    .pagination {
+      text-align: center;
+
+      span {
+        a {
+          background-color: #fff;
+          padding: 10px 14px;
+          border-radius: 10px;
+          margin-right: 7px;
+          border: 1px solid #fff;
+
+          &:not(.current):hover {
+            background-color: $main-color;
+            color: #fff;
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .current {
+        color: #fff;
+        font-weight: bold;
+        background-color: $main-color-light;
+        padding: 10px 14px;
+        border-radius: 10px;
+        margin-right: 7px;
+        cursor: default;
+      }
+    }
+  }
+}
+
+/*================================
+ビリヤード場詳細
+=================================*/
+.hall-show {
+  padding-top: $header-height;
+  font-size: 14px;
+  background-color: $main-color;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+
+  @include mq(tab) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &-container {
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 70px auto;
+    padding: 30px;
+  }
+
+  &-img {
+    max-width: 800px;
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+    }
+  }
+
+  @include table;
+
+  th {
+    border: 1px solid $border-color;
+    width: 300px;
+
+    @include mq(tab) {
+      width: 130px;
+    }
+  }
+
+  td {
+    word-wrap: break-word;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  .hall-review {
+    width: 100%;
+    margin: 0 auto;
+
+    &-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    &-item {
+      display: flex;
+      padding: 20px 0;
+      border-top: 1px solid $border-color;
+
+      &:last-of-type {
+        border-bottom: 1px solid $border-color;
+      }
+
+      &-inner {
+        width: 80%;
+      }
+
+      &-name {
+        font-size: 14px;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 3px;
+        padding-bottom: 4px;
+      }
+
+      &-img {
+        width: 70px;
+        height: 70px;
+        margin-right: 40px;
+
+        @include mq(tab) {
+          margin-right: 20px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 100px;
+        }
+      }
+
+      &-content {
+        word-break: break-all;
+
+        @include mq(tab) {
+          width: 100%;
+        }
+      }
+    }
+
+    form {
+      margin-top: 30px;
+
+      textarea {
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 600px;
+        height: 100px;
+        border: 1px solid $border-color;
+        border-radius: 5px;
+
+        @include mq(tab) {
+          width: 100%;
+        }
+      }
+
+      .sign_in_action {
+        pointer-events: none;
+      }
+
+      .action {
+        border: 1px solid $border-color;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: $main-color-light;
+          color: #fff;
+        }
+      }
+
+      span {
+        color: $sub-color;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+    }
+  }
+}
+
+/*================================
+ビリヤード場登録
+=================================*/
+.new-hall {
+  padding-top: $header-height;
+  width: 100%;
+
+  table {
+    width: 500px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #000;
+  }
+}
+
+/*================================
+ログイン画面&新規登録画面
+=================================*/
+.user {
+  padding-top: $header-height + 180px;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+
+  .new_user {
+    margin-bottom: 20px;
+  }
+
+  &-logo {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    height: 33px;
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  .image-input-btn {
+    display: block;
+    background-color: $main-color-light;
+    width: 180px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding-top: 2px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      color: $main-color-light;
+      border: 1px solid $main-color-light;
+      background-color: #fff;
+    }
+  }
+
+  .image-input-file {
+    display: none;
+  }
+
+  .user-image-file {
+    display: none;
+  }
+
+  .user-image-inner {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin-top: 6px;
+      margin-left: 10px;
+    }
+  }
+
+  #user_remember_me {
+    height: 20px;
+    text-align: left;
+  }
+
+  .user-account-text {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .check-field {
+    display: flex;
+
+    input {
+      width: 30px;
+    }
+  }
+
+  .actions {
+    margin-top: 20px;
+
+    input {
+      background-color: $main-color-light;
+      height: 55px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.4s;
+
+      &:hover {
+        color: $main-color-light;
+        border: 1px solid $main-color-light;
+        background-color: #fff;
+      }
+    }
+  }
+
+  .user-account-text {
+    a {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+/*================================
+マイページ
+=================================*/
+.mypage {
+  padding-top: $header-height + 100px;
+  background-color: $main-color;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+
+  @include mq(sp) {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 100px;
+  }
+
+  .section-title {
+    text-align: center;
+
+    h3 {
+      @include section-title;
+      color: $font-color;
+    }
+  }
+
+  &-img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
+
+  &-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 50px 50px;
+
+    @include mq(sp) {
+      padding: 0 20px 20px;
+    }
+  }
+
+  &-profile {
+    ul {
+      width: 400px;
+      margin: 40px auto;
+
+      li {
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+    }
+  }
+
+  &-favorite {
+    background-color: $main-color;
+    padding-bottom: 30px;
+  }
+
+  .favorite-check {
+    color: $sub-color;
+    padding-right: 10px;
+    margin-bottom: 10px;
+
+    i::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f004";
+      font-weight: 900;
+    }
+
+    i {
+      transition: 0.3s;
+    }
+
+    &:hover {
+      content: "\f7a9";
+      color: $secondary-color;
+    }
+  }
+
+  &-halls {
+    &-pagination {
+      width: 600px;
+      margin: 0 auto;
+
+      .pagination {
+        span {
+          a {
+            background-color: #fff;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-right: 7px;
+            border: 1px solid #fff;
+
+            &:not(.current):hover {
+              background-color: $main-color;
+              color: #fff;
+              border: 1px solid #fff;
+              box-sizing: border-box;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .current {
+          color: #fff;
+          font-weight: bold;
+          background-color: $main-color-light;
+          padding: 10px 14px;
+          border-radius: 10px;
+          margin-right: 7px;
+          cursor: default;
+        }
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+      max-width: 1300px;
+      padding: 30px;
+
+      &::after {
+        content: "";
+        width: calc(33.3% - 30px * 2 / 3);
+        display: block;
+      }
+
+      @include mq(sp) {
+        padding: 13px;
+      }
+    }
+
+    &-item {
+      border-radius: 5px;
+      width: calc(33.3% - 30px * 2 / 3);
+      background-color: #fff;
+      box-shadow: 10px 10px 15px -10px;
+      padding: 30px;
+      margin-bottom: 30px;
+
+      @media screen and (min-width:768px) and (max-width:1020px) {
+        width: calc(50% - 20px * 1 / 2);
+      }
+
+      @media screen and (min-width:521px) and (max-width:767px) {
+        width: 100%;
+      }
+
+      @include mq(sp) {
+        width: 100%;
+      }
+
+      &-inner {
+        word-break: break-all;
+      }
+
+      &-name {
+        color: $main-color-light;
+        padding-bottom: 10px;
+        display: inline-block;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+
+      &-show {
+        background-color: $main-color-light;
+        color: #fff;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #fff;
+          color: $main-color-light;
+          border: 1px solid $main-color-light;
+        }
+      }
+
+      p {
+        padding-bottom: 20px;
+      }
+    }
+
+    &-img {
+      height: 200px;
+      margin: 10px 0;
+
+      img {
+
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/*================================
+ユーザー編集
+=================================*/
+.user-edit {
+  padding-top: $header-height + 100px;
+  padding-bottom: 100px;
+  background-color: $main-color;
+
+  &-img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 40px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
+
+  h5 {
+    font-size: 18px;
+    color: #DA1212;
+  }
+
+  &-list {
+    padding: 18px 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .link-below-user-form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .container {
+    width: 94%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 50px 50px;
+
+    @include mq(tab) {}
+
+    .section-title {
+      text-align: center;
+
+      h3 {
+        @include section-title;
+      }
+
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    input {
+      border: solid 1px $border-color;
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      background-color: $main-color-light;
+      color: #fff;
+      font-weight: bold;
+      padding: 15px 0;
+      border-radius: 10px;
+      transition: 0.4s;
+
+      &:hover {
+        color: $main-color-light;
+        background-color: #fff;
+        border: 1px solid $main-color-light;
+      }
+    }
+
+    .link-below-user-form {
+      display: block;
+      background-color: $sub-color;
+      color: #fff;
+      font-weight: bold;
+      padding: 15px 0;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: 1px solid $sub-color;
+
+      &:hover {
+        color: $sub-color;
+        background-color: #fff;
+        border: 1px solid $sub-color;
+      }
+    }
+  }
+}
+
+/*================================
+利用規約
+=================================*/
+.terms {
+  background-color: $main-color;
+  padding: 130px 40px;
+
+  @include mq(tab) {
+    padding: 130px 20px;
+  }
+
+  .terms-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 100px;
+
+    @include mq(tab) {
+      padding: 50px 30px;
+    }
+
+    h4 {
+      font-size: 32px;
+      margin-bottom: 27px;
+
+      @include mq(tab) {
+        font-size: 26px;
+      }
+    }
+
+    h5 {
+      font-size: 20px;
+      margin-bottom: 18px;
+
+      @include mq(tab) {
+        font-size: 16px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 27px;
+
+      @include mq(tab) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  ol {
+    margin-bottom: 20px;
+
+    li {
+      font-size: 14px;
+      list-style-type: decimal;
+      list-style-position: inside;
+      margin-bottom: 10px;
+
+      ol {
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .end {
+    text-align: right;
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <body>
+    <section class="halls">
+      <div class="halls-container">
+        <div class="section-title wow fadeInUp">
+          <h3>検索結果:<%=  @search_halls_count.count %>件</h3>
+        </div>
+        <!-- /.section-title -->
+        <div class="halls-sort wow fadeInUp">
+          <ul>
+            <li
+              class="<%= "current" if params[:q][:s] == "updated_at asc" || params[:q][:s] == "updated_at desc" || params[:q][:s].nil? %>">
+              <th><%= sort_link(@q, :updated_at, "新着順",{ default_order: :desc }) %></th>
+            </li>
+            <li
+              class="<%= "current" if params[:q][:s] == "favorites_count asc" || params[:q][:s] == "favorites_count desc" %>">
+              <th><%= sort_link(@q, :favorites_count, "お気に入り順",{ default_order: :desc } ) %></th>
+            </li>
+            <li
+              class="<%= "current" if params[:q][:s] == "reviews_count asc" || params[:q][:s] == "reviews_count desc" %>">
+              <th><%= sort_link(@q, :reviews_count, "レビュー順",{ default_order: :desc } ) %></th>
+            </li>
+          </ul>
+          <div class="halls-count">
+            <%= page_entries_info(@search_halls, entry_name: 'ユーザー') %>
+          </div>
+          <!-- /.halls-count -->
+        </div>
+        <!-- /.halls-sort -->
+        <div class="halls-inner">
+          <ul class="halls-list">
+            <% @search_halls.each do |h| %>
+              <li class="halls-item wow fadeInUp">
+                <div class="halls-item-inner">
+                  <div class="halls-item-img">
+                    <%= image_tag h.image %>
+                  </div>
+                  <!-- /.halls-item-img -->
+                  <div class="halls-item-favorite-icon">
+                    <%= render partial: "favorite", locals: {h: h} %>
+                    <p><%= h.favorites.count %></p>
+                  </div>
+                  <!-- /.halls-item-favorite -->
+                  <div class="halls-item-review-icon">
+                    <i class="fa-solid fa-comments"></i>
+                    <p><%= h.reviews.count %></p>
+                  </div>
+                  <!-- /.halls-item-review -->
+                  <h4 class="halls-item-name">
+                    <%= link_to "#{h.name}", billisearch_hall_path(h) %>
+                  </h4>
+                  <p><%= h.address %></p>
+                  <p><%= h.tel %></p>
+                  <% if h.email.present? %>
+                    <p><%= h.email %></p>
+                  <% end %>
+                  <p><%= link_to "#{h.url}", "#{h.url}", class: "halls-item-url" %></p>
+                  <p><%= h.price %></p>
+                  <p><%= h.time %></p>
+                  <p><%= h.open %></p>
+                  <% if h.reviews.present? %>
+                    <% h.reviews.first(2).each do |r| %>
+                      <div class="halls-item-review">
+                        <div class="halls-item-review-img">
+                          <img src=<%= r.user.image %>>
+                        </div>
+                        <!-- /.hall-item-review-img -->
+                        <div class="halls-item-review-summary">
+                          <p class="name"><%= r.user.name %></p>
+                          <p class="content"><%= r.content %></p>
+                        </div>
+                        <!-- /.halls-item-teview-summary -->
+                      </div>
+                      <!-- /.halls-item-review -->
+                    <% end %>
+                  <% end %>
+                  <%= link_to "詳細はこちら", billisearch_hall_path(h), class:"halls-item-show" %>
+                  <% if user_signed_in? %>
+                    <% if current_user.email == 'o_ryuya@icloud.com' %>
+                      <%= button_to "削除", billisearch_hall_path(h), method: :delete %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <!-- /.halls-item-inner -->
+              </li>
+              <!-- /.halls-item -->
+            <% end %>
+          </ul>
+          <!-- /.halls-list -->
+          <div class="halls-pagination wow fadeInUp">
+            <%= paginate @search_halls %>
+          </div>
+          <!-- /.halls-pagination -->
+        </div>
+        <!-- /.halls-inner -->
+      </div>
+      <!-- /.halls-container -->
+    </section>
+    <!-- /.halls -->
+    <script src=" ./js/script.js"></script>
+  </body>
+</html>
+<script type="text/javascript">
+  $(function () {
+    $('.edit_user :input').prop('disabled', true);
+    $('.edit_user :input').prop('disabled', true);
+    $('.form-submit-btn').off('mouseenter mouseleave');
+  });
+</script>
