@@ -9,7 +9,7 @@ RSpec.feature "user", type: :feature do
     background do
       sign_in user1
       hall.favorites << create_list(:favorite, 1, hall: hall, user: user1)
-      visit user_path(1)
+      visit user_path(user1.id)
     end
 
     scenario "ページにログイン中のユーザー情報が正しく表示されること" do
@@ -40,7 +40,7 @@ RSpec.feature "user", type: :feature do
 
     background do
       sign_in user1
-      visit user_path(1)
+      visit user_path(user1)
     end
 
     scenario "ページにログイン中のユーザー情報が正しく表示されること" do
