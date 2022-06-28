@@ -1,17 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "Halls", type: :request do
-
   before do
-    @params = Hash.new
-    @params[:q] = Hash.new
+    @params = {}
+    @params[:q] = {}
     @params[:q][:name_or_address_cont] = 'あああ'
   end
 
   describe "ビリヤード場一覧" do
-
-    let(:hall) {create(:hall, :hall_image)}
-    let(:user) {create(:user)}
+    let(:hall) { create(:hall, :hall_image) }
+    let(:user) { create(:user) }
     let(:reviews) { nil }
 
     before do
@@ -24,9 +22,8 @@ RSpec.describe "Halls", type: :request do
   end
 
   describe "ビリヤード場詳細" do
-
-    let!(:hall) {create(:hall, :hall_image)}
-    let!(:user) {create(:user)}
+    let!(:hall) { create(:hall, :hall_image) }
+    let!(:user) { create(:user) }
     let!(:reviews) { nil }
 
     before do
@@ -52,7 +49,7 @@ RSpec.describe "Halls", type: :request do
 
     context "口コミが投稿されている場合" do
       it "投稿された口コミが表示されていること" do
-        reviews = hall.reviews << create(:review, hall: hall)
+        hall.reviews << create(:review, hall: hall)
         get billisearch_hall_path(1)
         expect(response.body).to include "いい店でした。"
       end
@@ -61,6 +58,5 @@ RSpec.describe "Halls", type: :request do
     it "口コミ投稿フォームが表示されていること" do
       expect(response.body).to include "form action=\"/reviews\""
     end
-    
-  end  
+  end
 end
