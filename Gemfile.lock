@@ -223,9 +223,6 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  net-imap
-  net-pop
-  net-smtp
   pg (= 0.20.0)
   puma (~> 5.0)
   rails (~> 7.0.3)

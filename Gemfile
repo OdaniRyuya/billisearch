@@ -10,9 +10,6 @@ gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
 
 gem 'pg', '0.20.0'
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
