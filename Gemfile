@@ -72,6 +72,7 @@ group :development do
   gem 'devise-i18n-views'
   gem 'kaminari'
   gem 'ransack', github: 'activerecord-hackery/ransack'
+  gem 'pg', '1.1'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -89,5 +90,5 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem "sqlite3", "~> 1.4"
+  # gem "sqlite3", "~> 1.4"
 end
