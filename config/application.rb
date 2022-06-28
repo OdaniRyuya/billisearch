@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
+# テスト時にコメントアウトを外す
 # require 'ransack'
 
 # Require the gems listed in Gemfile, including any gems
