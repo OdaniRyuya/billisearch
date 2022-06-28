@@ -1,34 +1,31 @@
 <div class="user">
   <div class="user-logo">
     <img src="/assets/logo.png" alt="">
-  </div><!-- /.user-logo -->
-  <h2>ログイン画面</h2>
-
+  </div>
+  <!-- /.user-logo -->
+  <h4>ログイン画面</h4>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <div class="field">
-    <%= f.label :name, "名前" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード"%><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-  <div class="field check-field">
-    <%= f.check_box :remember_me%>
-    <%= f.label :remember_me, "ログイン状態を保持する" %>
-  </div>
+    <div class="field">
+      <%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "パスワード"%><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <div class="field check-field">
+        <%= f.check_box :remember_me%>
+        <%= f.label :remember_me, "ログイン状態を保持する" %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit "ログイン" %>
+    </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-  <% end %>
-
   <div class="user-account-text">
     <%= render "devise/shared/links" %>
-  </div><!-- /.user-account-text -->
-</div><!-- /.user -->
+  </div>
+  <!-- /.user-account-text -->
+</div>
+<!-- /.user -->

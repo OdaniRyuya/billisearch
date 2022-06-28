@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-
   <body>
     <section class="top">
       <div class="top-container">
         <div class="top-summary">
-          <h2>billisearchとは？</h2>
+          <h2>BILLISEARCH</h2>
           <p>近くのビリヤード場の場所を知りたい時、是非billisearchをご利用ください。</p>
           <p>場所は分かるし行ってみたいけど、初めて行く店だから少し不安...という方のためにも、口コミや店内施設の写真なども共有することができます。</p>
-          <button>検索する</button>
-        </div><!-- /.top-summary -->
-      </div><!-- /.top-container -->
-    </section><!-- /.top -->
-
-    <section class="hall">
-      <h3>-ビリヤード場-</h3>
-      <div class="hall-container">
-        <div class="hall-left">
-          <div class="hall-add">新しいビリヤード場を登録する</div><!-- /.hall-add -->
-          <ul class="hall-list">
-            <li class="hall-item">ビリヤード場1</li>
-            <li class="hall-item">ビリヤード場2</li>
-            <li class="hall-item">ビリヤード場3</li>
-            <li class="hall-item">ビリヤード場4</li>
-          </ul><!-- /.hall-list -->
-        </div><!-- /.hall-left -->
-        <div class="hall-map"><img src="/assets/map-sample.jpg" alt=""></div><!-- /.hall-map -->
-      </div><!-- /.hall-container -->
-    </section><!-- /.hall -->
-
-    <script src="./js/script.js"></script>
-  </body>
-
+          <%= search_form_for @q, url: billisearch_halls_path do |f| %>
+            <%= f.search_field :name_or_address_cont, placeholder: "検索" %>
+          <% end %>
+        </div>
+        <!-- /.top-summary -->
+      </div>
+      <!-- /.top-container -->
+    </section>
+    <!-- /.top -->
+  </div>
+  <!-- /.hall-container -->
+</section>
+<!-- /.hall -->
+<script src="./js/script.js"></script>
+</body>
 </html>

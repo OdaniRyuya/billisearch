@@ -1,6 +1,6 @@
 class Billisearch::HallsController < ApplicationController
   def index
-    @halls = Hall.all
+    @search_halls = @search_halls.page(params[:page]).per(PAGINATION_MAX_HALLS_COUNT)
   end
 
   def new
@@ -8,9 +8,10 @@ class Billisearch::HallsController < ApplicationController
   end
 
   def create
-    @hall = Hall.new(params.require(:hall).permit(:image ,:name, :url, :address, :tel, :time, :email, :price, :parking, :billiards, :open, :pr, :lead,))
+    @hall = Hall.new(params.require(:hall).permit(:image, :name, :url, :address,
+      :tel, :time, :email, :price, :parking, :billiards, :open, :pr, :lead))
     if @hall.save
-      redirect_to billisearch_halls_path
+      redirect_to billisearch_home_path
     else
       redirect_to billisearch_home_path
     end
@@ -18,11 +19,13 @@ class Billisearch::HallsController < ApplicationController
 
   def show
     @hall = Hall.find(params[:id])
+    @review = Review.new
+    @reviews = @hall.reviews
   end
 
   def destroy
     @hall = Hall.find(params[:id])
     @hall.destroy
-    redirect_to billisearch_halls_path
+    redirect_back(fallback_location: billisearch_halls_path)
   end
 end
