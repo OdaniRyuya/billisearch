@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'billisearch#home'
   get 'users/show'
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions' }
   resources :users, :only => [:show] 
@@ -7,9 +8,8 @@ Rails.application.routes.draw do
   delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
 
   namespace :billisearch do
-    get 'terms_page'
     get 'home'
-    root 'home'
+    get 'terms_page'
     post 'new_guest'
     resources :halls
   end
