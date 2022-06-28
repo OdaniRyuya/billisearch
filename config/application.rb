@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails/all"
-require 'pry'
 require 'devise'
 require 'kaminari'
 require 'carrierwave'
