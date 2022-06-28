@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.3"
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
@@ -9,9 +9,7 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-group :production do
-  gem 'pg', '0.20.0'
-end
+gem 'pg', '0.20.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -64,7 +62,7 @@ group :development do
   gem 'devise-i18n'
   gem 'devise-i18n-views'
   gem 'kaminari'
-  gem "ransack", git: "https://github.com/activerecord-hackery/ransack", ref: "81910c238dd4452bbe90541f13abb6e85b3bbfea"
+  gem "ransack", git: "https://github.com/activerecord-hackery/ransack"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
