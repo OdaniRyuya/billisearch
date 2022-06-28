@@ -17,5 +17,4 @@ FactoryBot.define do
   trait :hall_image do
     image { Rack::Test::UploadedFile.new("spec/fixtures/test.jpg") }
   end
-
 end
