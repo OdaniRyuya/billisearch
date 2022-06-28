@@ -53,7 +53,7 @@ group :production do
   gem 'devise-i18n-views'
   gem 'kaminari'
   gem 'ransack', github: 'activerecord-hackery/ransack'
-  gem 'pg', '0.20.0'
+  gem 'pg', '1.1'
 end
 
 group :development, :test do
