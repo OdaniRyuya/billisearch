@@ -63,7 +63,11 @@
                     <% h.reviews.first(2).each do |r| %>
                       <div class="halls-item-review">
                         <div class="halls-item-review-img">
-                          <img src=<%= r.user.image %>>
+                          <% if r.user.image? %>
+                            <img src=<%= r.user.image %>>
+                          <% else %>
+                            <%= image_tag "profile-image.png" %>
+                          <% end %>
                         </div>
                         <!-- /.hall-item-review-img -->
                         <div class="halls-item-review-summary">

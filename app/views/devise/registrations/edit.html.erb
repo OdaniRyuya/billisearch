@@ -11,7 +11,7 @@
           <% if current_user.image? %>
             <img src=<%= current_user.image %>>
           <% else %>
-            <img src="/assets/profile-image.png" %>
+            <%= image_tag "profile-image.png" %>
           <% end %>
         </div>
         <!-- /.user-edit-img -->
