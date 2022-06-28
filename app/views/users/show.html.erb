@@ -8,7 +8,7 @@
       <% if current_user.image? %>
         <img src=<%= current_user.image %>>
       <% else %>
-        <img src="/assets/profile-image.png" %>
+        <%= image_tag "profile-image.png" %>
       <% end %>
     </div>
     <!-- /.mypage-img -->
@@ -30,7 +30,7 @@
             <li class="mypage-halls-item wow fadeInUp">
               <div class="mypage-halls-item-inner">
                 <div class="mypage-halls-img">
-                  <img src="/assets/playplan.jpg" %>
+                  <%= image_tag favorite.hall.image %>
                 </div>
                 <!-- /.mypage-halls-img -->
                 <%= button_to destroy_favorite_path(favorite.hall.id), method: :delete, data: { turbo: false }, form: { onSubmit: "return check()" } , class: "favorite-check" do %>
