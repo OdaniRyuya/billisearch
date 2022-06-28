@@ -1,6 +1,12 @@
 require_relative "boot"
 
 require "rails/all"
+require 'devise'
+require 'devise'
+require 'kaminari'
+require 'carrierwave'
+require 'capybara/rspec'
+require 'ransack'
 
 # テスト時にコメントアウトを外す
 # require 'ransack'
