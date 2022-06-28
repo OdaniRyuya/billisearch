@@ -64,7 +64,7 @@ group :development do
   gem 'devise-i18n'
   gem 'devise-i18n-views'
   gem 'kaminari'
-  gem 'ransack'
+  gem "ransack", git: "https://github.com/activerecord-hackery/ransack", ref: "81910c238dd4452bbe90541f13abb6e85b3bbfea"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack
+  revision: 81910c238dd4452bbe90541f13abb6e85b3bbfea
+  ref: 81910c238dd4452bbe90541f13abb6e85b3bbfea
+  specs:
+    ransack (2.4.2)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -222,10 +232,6 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    ransack (3.2.1)
-      activerecord (>= 6.1.5)
-      activesupport (>= 6.1.5)
-      i18n
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -355,7 +361,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.3)
-  ransack
+  ransack!
   rspec-rails
   rubocop-airbnb
   sassc-rails
