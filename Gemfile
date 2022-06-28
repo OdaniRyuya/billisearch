@@ -48,8 +48,6 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 group :production do
-  gem "web-console"
-  gem 'pry-rails'
   gem 'devise'
   gem 'carrierwave'
   gem 'mini_magick'
