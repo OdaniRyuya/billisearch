@@ -91,6 +91,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'ransack', github: 'activerecord-hackery/ransack'
+  
 end
 
 gem "aws-sdk-s3", require: false
