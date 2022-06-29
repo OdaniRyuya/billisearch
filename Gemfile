@@ -9,11 +9,6 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b699459788cab7725288fa02e1b5e160b9df5628
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -45,7 +40,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -70,7 +65,6 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-<<<<<<< HEAD
   gem 'pry-rails'
   gem 'devise'
   gem 'carrierwave'
@@ -80,17 +74,6 @@ group :development do
   gem 'kaminari'
   gem 'ransack', github: 'activerecord-hackery/ransack'
   gem 'pg', '1.1'
-=======
-  gem 'pry-rails'
-  gem 'devise'
-  gem 'carrierwave'
-  gem 'mini_magick'
-  gem 'devise-i18n'
-  gem 'devise-i18n-views'
-  gem 'kaminari'
-  gem 'ransack', github: 'activerecord-hackery/ransack'
-  gem 'pg', '1.1'
->>>>>>> b699459788cab7725288fa02e1b5e160b9df5628
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -104,21 +87,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-<<<<<<< HEAD
   gem 'rubocop-airbnb'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'ransack', github: 'activerecord-hackery/ransack'
-  # gem "sqlite3", "~> 1.4"
-=======
-  gem 'rubocop-airbnb'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'ransack', github: 'activerecord-hackery/ransack'
-  # gem "sqlite3", "~> 1.4"
->>>>>>> b699459788cab7725288fa02e1b5e160b9df5628
 end
 
 gem "aws-sdk-s3", require: false
