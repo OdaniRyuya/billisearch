@@ -91,7 +91,6 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'ransack', github: 'activerecord-hackery/ransack'
-  # gem "sqlite3", "~> 1.4"
 end
 
 gem "aws-sdk-s3", require: false
