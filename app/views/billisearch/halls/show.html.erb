@@ -68,7 +68,11 @@
             <% @reviews.each do |review| %>
               <li class="hall-review-item">
                 <div class="hall-review-item-img">
-                  <img src="/assets/playplan.jpg">
+                  <% if review.user.image? %>
+                    <img src=<%= review.user.image %>>
+                  <% else %>
+                    <%= image_tag "profile-image.png" %>
+                  <% end %>
                 </div>
                 <!-- /.hall-review-item-img -->
                 <div class="hall-review-item-inner">

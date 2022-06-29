@@ -6,7 +6,7 @@ RSpec.describe "Mypage", type: :request do
 
     before do
       sign_in user
-      get user_path(1)
+      get user_path(user.id)
     end
 
     it "正常にレスポンスを返すこと" do

@@ -27,7 +27,7 @@ RSpec.describe "Halls", type: :request do
     let!(:reviews) { nil }
 
     before do
-      get billisearch_hall_path(1)
+      get billisearch_hall_path(hall.id)
     end
 
     it "正常にレスポンスを返すこと" do
@@ -50,7 +50,7 @@ RSpec.describe "Halls", type: :request do
     context "口コミが投稿されている場合" do
       it "投稿された口コミが表示されていること" do
         hall.reviews << create(:review, hall: hall)
-        get billisearch_hall_path(1)
+        get billisearch_hall_path(hall.id)
         expect(response.body).to include "いい店でした。"
       end
     end

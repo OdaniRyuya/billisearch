@@ -59,9 +59,9 @@ RSpec.feature "ビリヤード場一覧", type: :feature do
     end
 
     scenario "お気に入り順をクリックする度にDESC(最初)とASCで交互にソートされること" do
-      hall1.favorites << create_list(:favorite, 2, hall: hall1)
-      hall3.favorites << create_list(:favorite, 1, hall: hall3)
-      hall2.favorites << create_list(:favorite, 0, hall: hall2)
+      hall1.favorites << create_list(:favorite, 5, hall: hall1)
+      hall3.favorites << create_list(:favorite, 3, hall: hall3)
+      hall2.favorites << create_list(:favorite, 1, hall: hall2)
 
       click_link 'お気に入り順'
 
@@ -79,9 +79,9 @@ RSpec.feature "ビリヤード場一覧", type: :feature do
     end
 
     scenario "レビュー順をクリックする度にDESC(最初)とASCで交互にソートされること" do
-      hall2.reviews << create_list(:review, 2, hall: hall2)
-      hall3.reviews << create_list(:review, 1, hall: hall3)
-      hall1.reviews << create_list(:review, 0, hall: hall1)
+      hall2.reviews << create_list(:review, 5, hall: hall2)
+      hall3.reviews << create_list(:review, 3, hall: hall3)
+      hall1.reviews << create_list(:review, 1, hall: hall1)
 
       click_link 'レビュー順'
       within '.halls-list' do
