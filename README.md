@@ -1,19 +1,24 @@
 # Billisearch
 
-Billisearch(ビリサーチ)とはBilliards(ビリヤード)とsearch(検索)を組み合わせたアプリケーションです。  
+Billisearch(ビリサーチ)はBilliards(ビリヤード)とsearch(検索)を組み合わせたアプリケーションです。  
 全国のビリヤード場から"店名"や"住所"で検索をかけることができます。
 
-## Description
+## デモ画像
+
+![FireShot Capture 007 -  - stark-citadel-06480 herokuapp com](https://user-images.githubusercontent.com/101167727/176616282-31f40b60-bf46-4b2c-8abc-617d854a303d.png)
 
 
+# 機能一覧
 
-# Features
-
-"hoge"のセールスポイントや差別化などを説明する
+* ユーザーの新規登録、ログイン、プロフィール編集(画像や名前の変更可)
+* ログインしているユーザのみお気に入り登録と口コミ投稿ができる(お気に入りは解除可)
+* ユーザーがお気に入りしたホールをマイページで確認できる
+* ゲストログイン機能
+* ソート機能(新着順、お気に入り順、レビュー順)
+* "住所"か"店名"で検索できる
+* 口コミ削除とホール登録の権限は管理人のみ
 
 # Requirement
-
-"hoge"を動かすのに必要なライブラリなどを列挙する
 
 * huga 3.5.2
 * hogehuga 1.0.2
