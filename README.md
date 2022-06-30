@@ -19,6 +19,17 @@ Billisearch(ビリサーチ)はBilliards(ビリヤード)とsearch(検索)を組
 * "住所"か"店名"で検索できる
 * 口コミ削除とホール登録の権限は管理人のみ
 
+## 環境
+* ruby 2.7.3p183
+* Rails 7.0.3
+* 使用言語 Ruby,HTML,CSS,Javascript
+* ライブラリ jQuery
+* デプロイ　Heroku
+* テスト Rspec rubocop
+
+## ER図
+![erd_page-0001](https://user-images.githubusercontent.com/101167727/176635974-ed7f528b-cf1b-42af-b0d7-89d126fa90e4.jpg)
+
 ## 使い方
 
 検索したい条件を入力 (例 "東京", "新宿", "自遊空間" など(店名か住所で絞り込みます))
@@ -27,7 +38,6 @@ Billisearch(ビリサーチ)はBilliards(ビリヤード)とsearch(検索)を組
 
 検索結果が表示されます。
 ![FireShot Capture 008 -  - stark-citadel-06480 herokuapp com](https://user-images.githubusercontent.com/101167727/176621767-79ea6cc3-ed85-4b12-b2c2-88c0b39d2673.png)
-
 
 ## なぜ作ったのか
 ビリヤードに興味があるが「敷居が高い」「なんか怖そう」と言った声を知人や周りから耳にしました。  
@@ -42,8 +52,15 @@ Billisearch(ビリサーチ)はBilliards(ビリヤード)とsearch(検索)を組
 しかしブームが過ぎてから昨今に至るまで参加人口が低下して悪化の一途をたどっています。  
 ![image](https://user-images.githubusercontent.com/101167727/176628317-84020c72-181a-4872-b86d-3c95f012d127.jpg)
 
-なのでビリヤード場に行くと若者の姿はあまり見られず、ほとんどがブーム当時プレイしていた中年のお客さんです。(作者は26歳です)  
+なのでビリヤード場に行くと若者の姿はあまり見られず、ほとんどがブーム当時プレイしていた中年のお客さんです。(作者は25歳です)  
 
 ですが最近、超人気テレビ番組のアメトークでビリヤード芸人が放送されました！！  
 これをきっかけにビリヤードに興味を持って頂いて、このアプリを使用していただく方が増えれば嬉しいです。  
+
+ ### 作者
+ 小谷竜也
+ ryuya.odani@gmail.com
+
+### ライセンス
+[MIT license]("hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License))
 
