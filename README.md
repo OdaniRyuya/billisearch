@@ -1,26 +1,58 @@
-# README
+# Billisearch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Billisearch(ビリサーチ)とはBilliards(ビリヤード)とsearch(検索)を組み合わせたアプリケーションです。  
+全国のビリヤード場から"店名"や"住所"で検索をかけることができます。
 
-a
+## Description
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+# Features
 
-* Configuration
+"hoge"のセールスポイントや差別化などを説明する
 
-* Database creation
+# Requirement
 
-* Database initialization
+"hoge"を動かすのに必要なライブラリなどを列挙する
 
-* How to run the test suite
+* huga 3.5.2
+* hogehuga 1.0.2
 
-* Services (job queues, cache servers, search engines, etc.)
+# Installation
 
-* Deployment instructions
+Requirementで列挙したライブラリなどのインストール方法を説明する
 
-* ...
+```bash
+pip install huga_package
+```
+
+# Usage
+
+DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+
+```bash
+git clone https://github.com/hoge/~
+cd examples
+python demo.py
+```
+
+# Note
+
+注意点などがあれば書く
+
+# Author
+
+作成情報を列挙する
+
+* 作成者
+* 所属
+* E-mail
+
+# License
+ライセンスを明示する
+
+"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+社内向けなら社外秘であることを明示してる
+
+"hoge" is Confidential.
