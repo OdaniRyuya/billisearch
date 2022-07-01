@@ -69,7 +69,7 @@
               <li class="hall-review-item">
                 <div class="hall-review-item-img">
                   <% if review.user.image? %>
-                    <img src=<%= review.user.image %>>
+                    <%= image_tag review.user.image %>
                   <% else %>
                     <%= image_tag "profile-image.png" %>
                   <% end %>

@@ -14,7 +14,7 @@ RSpec.describe "Mypage", type: :request do
     end
 
     it "ユーザーの情報が正しく表示されていること" do
-      expect(response.body).to include "user_test_email_date", "user_test_name_date", "test.jpg>"
+      expect(response.body).to include "user_test_email_date", "user_test_name_date", "test.jpg"
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe "Mypage", type: :request do
     end
 
     it "ユーザーの情報が正しく表示されていること" do
-      expect(response.body).to include "user_test_email_date", "user_test_name_date", "test.jpg>"
+      expect(response.body).to include "user_test_email_date", "user_test_name_date", "test.jpg"
     end
 
     it "入力フォームが表示されていること" do

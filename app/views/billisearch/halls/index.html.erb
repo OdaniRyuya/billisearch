@@ -64,7 +64,7 @@
                       <div class="halls-item-review">
                         <div class="halls-item-review-img">
                           <% if r.user.image? %>
-                            <img src=<%= r.user.image %>>
+                            <%= image_tag r.user.image %>
                           <% else %>
                             <%= image_tag "profile-image.png" %>
                           <% end %>

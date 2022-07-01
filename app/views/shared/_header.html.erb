@@ -24,7 +24,7 @@
           <ul class="header-drop">
             <div class="header-drop-menu header-user-icon ">
               <% if current_user.image? %>
-                <img src=<%= current_user.image %>>
+                <%= image_tag current_user.image %>
               <% else %>
                 <%= image_tag "profile-image.png" %>
               <% end %>

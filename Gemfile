@@ -74,6 +74,7 @@ group :development do
   gem 'kaminari'
   gem 'ransack', github: 'activerecord-hackery/ransack'
   gem 'pg', '1.1'
+  gem 'rails-erd'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
