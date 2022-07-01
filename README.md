@@ -21,10 +21,11 @@ Billisearch(ビリサーチ)はBilliards(ビリヤード)とsearch(検索)を組
 
 ## 環境
 * ruby 2.7.3p183
-* Rails 7.0.3
+* フレームワーク Rails 7.0.3
 * 使用言語 Ruby,HTML,CSS,Javascript
 * ライブラリ jQuery
-* デプロイ　Heroku
+* データベース postgresql
+* PaaS　Heroku
 * テスト Rspec rubocop
 
 ## ER図
