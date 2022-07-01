@@ -16,7 +16,7 @@ RSpec.describe "header", type: :request do
 
     context "ログインしている時" do
       it "ユーザーアイコンとユーザー名が表示されていること" do
-        expect(response.body).to include "user_test_name_date", "test.jpg>"
+        expect(response.body).to include "user_test_name_date", "test.jpg"
       end
     end
 
