@@ -228,8 +228,8 @@ a:hover {
     img {
       width: 200px;
 
-      @include mq(sp) {
-        width: 160px;
+      @include mq(tab) {
+        display: none;
       }
     }
   }
@@ -238,10 +238,8 @@ a:hover {
     display: flex;
     align-items: center;
 
-    #q_name_or_address_cont {
-      @include mq(tab) {
-        display: none;
-      }
+    @include mq(tab) {
+      margin-left: 20px;
     }
 
     .action {
@@ -249,10 +247,19 @@ a:hover {
         margin-left: 1px;
       }
     }
+
+    .hall_search {
+      #q_name_or_address_cont {
+        @include mq(sp) {
+          width: 80px;
+          margin-right: 5px;
+        }
+      }
+    }
   }
 
-  &-right{
-    #q_name_or_address_cont{
+  &-right {
+    #q_name_or_address_cont {
       display: none;
     }
   }
