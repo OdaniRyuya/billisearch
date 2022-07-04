@@ -251,6 +251,12 @@ a:hover {
     }
   }
 
+  &-right{
+    #q_name_or_address_cont{
+      display: none;
+    }
+  }
+
   &-list {
     display: flex;
     align-items: center;

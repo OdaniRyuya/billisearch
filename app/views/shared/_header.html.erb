@@ -9,6 +9,10 @@
   <!-- /.header-logo -->
   <div class="header-right">
     <ul class="header-list">
+      <%= search_form_for @q, url: billisearch_halls_path do |f| %>
+        <%= f.search_field :name_or_address_cont, placeholder: "" %>
+        <%= f.submit 'ビリヤード場一覧', class:"action" %>
+      <% end %>
       <% if user_signed_in? %>
         <% if current_user.email == 'o_ryuya@icloud.com' %>
           <li class="header-item"><%= link_to "ビリヤード場登録", new_billisearch_hall_path %></li>
