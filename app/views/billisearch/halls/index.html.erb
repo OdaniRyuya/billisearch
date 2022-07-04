@@ -21,6 +21,12 @@
               class="<%= "current" if params[:q][:s] == "reviews_count asc" || params[:q][:s] == "reviews_count desc" %>">
               <th><%= sort_link(@q, :reviews_count, "レビュー順",{ default_order: :desc } ) %></th>
             </li>
+            <li>
+              <%= search_form_for @q, url: billisearch_halls_path do |f| %>
+                <%= f.select :address_cont, options_from_collection_for_select(Prefecture.all, :name, :name ) %>
+                <%= f.submit '検索', class:"action" %>
+              <% end %>
+            </li>
           </ul>
           <div class="halls-count">
             <%= page_entries_info(@search_halls, entry_name: 'ユーザー') %>

@@ -262,6 +262,15 @@ a:hover {
     #q_name_or_address_cont {
       display: none;
     }
+
+    .action {
+      @include mq(tab) {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 13px 5px;
+      }
+    }
+
   }
 
   &-list {
@@ -563,6 +572,27 @@ footer {
         a {
           color: $main-color-light;
           border-bottom: 1px solid $main-color;
+        }
+      }
+
+      .hall_search {
+        margin-left: 10px;
+
+        #q_name_or_address_cont {
+          display: none;
+        }
+
+        #q_address_cont {
+          background-color: $border-color;
+          padding: 4px 8px;
+          border-radius: 5px;
+          font-size: 12px;
+          border: $secondary-color 1px solid;
+        }
+
+        .action {
+          padding: 4px 8px;
+          font-size: 12px;
         }
       }
     }
